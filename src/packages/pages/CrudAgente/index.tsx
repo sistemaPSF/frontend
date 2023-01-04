@@ -1,0 +1,1 @@
+export { default as CrudAgente } from './CrudAgente';
