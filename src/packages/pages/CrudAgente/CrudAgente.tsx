@@ -17,12 +17,14 @@ import { CustomGrid, Title } from '../Home/styles';
 import { CustomImage } from '../Home/styles';
 import logoSF from '../../../assets/logoSF.png';
 import { CustomText, LabelError, CustomButton1, CustomButton2, Subtitle } from './../Signin/styles';
+import api from '../../../services/api';
 
 
 // const cpfRegex = [0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2};
 
 function CrudAgente() {
     const [nome, setNome] = useState('');
+    const [rg, setRg] = useState('');
     const [cpf, setCpf] = useState('');
     const [dataNascimento, setDataNascimento] = useState('');
     const [setor, setSetor] = useState('');
@@ -32,11 +34,39 @@ function CrudAgente() {
     const [complemento, setComplemento] = useState('');
     const [cidade, setCidade] = useState('');
     const [estado, setEstado] = useState('');
+    const [celular, setCelular] = useState('');
+    const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [confirmarSenha, setConfirmarSenha] = useState('');
     const [error, setError] = useState('');
 
     const navigate = useNavigate();
+
+    const CadastroAgente =  () => {
+        api.post('/agentes',
+        {
+            "nome": nome,
+            "rg": rg,
+            "cpf": cpf,
+            "dataNascimento": dataNascimento,
+            "setor": setor,
+            "rua": rua,
+            "numero": numero,
+            "bairro": bairro,
+            "complemento": complemento,
+            "cidade": cidade,
+            "estado": estado,
+            "celular": celular,
+            "email": email,
+            "senha": senha,
+            "confirmarSenha": confirmarSenha
+        }
+        ).then(response => {
+            navigate('/Signin') 
+        }).catch(err => {
+            alert(err)
+        })
+    }
     
     
     return (
@@ -93,6 +123,18 @@ function CrudAgente() {
                     value={nome}
                     onChange={(e) => {
                         setNome(e.target.value);
+                    }}
+                    margin="dense"
+                />
+
+                <TextField style={{ backgroundColor: '#AFDCF6' }}
+                    data-testid="rg"
+                    label="RG"
+                    variant="outlined"
+                    fullWidth
+                    value={rg}
+                    onChange={(e) => {
+                        setRg(e.target.value);
                     }}
                     margin="dense"
                 />
@@ -197,6 +239,30 @@ function CrudAgente() {
                 />
 
                 <TextField style={{ backgroundColor: '#AFDCF6' }}
+                    data-testid="celular"
+                    label="Celular"
+                    variant="outlined"
+                    fullWidth
+                    value={celular}
+                    onChange={(e) => {
+                        setCelular(e.target.value);
+                    }}
+                    margin="dense"
+                />
+                
+                <TextField style={{ backgroundColor: '#AFDCF6' }}
+                    data-testid="email"
+                    label="Email"
+                    variant="outlined"
+                    fullWidth
+                    value={email}
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                    }}
+                    margin="dense"
+                />
+
+                <TextField style={{ backgroundColor: '#AFDCF6' }}
                     data-testid="senha"
                     label="Digite sua senha"
                     variant="outlined"
@@ -223,6 +289,7 @@ function CrudAgente() {
                         data-testid="cadastrar"
                         // variant="contained"
                         // onClick={handleSignup}
+                        onClick={() => CadastroAgente()}
                     >
                        Cadastrar
                     </CustomButton1>
