@@ -35,7 +35,7 @@ function Home() {
                 <Box maxWidth="1000px">
                     <CustomButton1 style= {{ color: 'black', backgroundColor: '#E0E6F8' }}
                     onClick={() => {
-                        navigate('/Signin');
+                        navigate('/Areas');
                       }}
                     >
                    ACESSAR
