@@ -16,7 +16,7 @@ import {
 import { CustomGrid, Title } from '../Home/styles';
 import { CustomImage } from '../Home/styles';
 import logoSF from '../../../assets/logoSF.png';
-import { CustomText, LabelError, CustomButton1, CustomButton2, Subtitle } from './../Signin/styles';
+import { CustomText, LabelError, CustomButton1, CustomButton2, Subtitle } from '../CrudAgente/Signin/styles';
 import api from '../../../services/api';
 
 

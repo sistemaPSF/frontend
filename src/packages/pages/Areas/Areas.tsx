@@ -51,7 +51,7 @@ function Areas() {
                 <CustomButton1 style={{ backgroundColor: "#FFFFFF"}}
                 
                 onClick={() => {
-                  navigate('/Signin') 
+                  navigate('/SigninPaciente') 
                 }}
                 >
                   Área do Paciente
@@ -64,7 +64,7 @@ function Areas() {
                 <CustomButton1 style={{ backgroundColor: "#FFFFFF"}}
                 
                 onClick={() => {
-                  navigate('/Signin') 
+                  navigate('/SigninAgente') 
                 }}
                 >
                   Área da Agente
@@ -77,7 +77,7 @@ function Areas() {
                 <CustomButton1 style={{ backgroundColor: "#FFFFFF"}}
                 
                 onClick={() => {
-                  navigate('/Signin') 
+                  navigate('/SigninMedico') 
                 }}
                 >
                   Área do Médico

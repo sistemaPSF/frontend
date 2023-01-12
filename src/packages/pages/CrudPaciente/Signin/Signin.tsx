@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Box, Grid, TextField } from '@mui/material';
-import { CustomGrid } from '../Home/styles';
-import { Title } from '../Signin/styles';
-import { Subtitle } from '../Signin/styles';
-import { CustomButton1 } from '../Signin/styles';
-import { CustomButton2 } from '../Signin/styles';
-import { CustomImage, LabelError} from '../Signin/styles';
-import { Header } from '../../../components/Header';
-import { Footer } from '../../../components/Footer';
+import { CustomGrid } from '../../Home/styles';
+import { Title } from './styles';
+import { Subtitle } from './styles';
+import { CustomButton1 } from './styles';
+import { CustomButton2 } from './styles';
+import { CustomImage, LabelError} from './styles';
+import { Header } from '../../../../components/Header';
+import { Footer } from '../../../../components/Footer';
 import { Link } from '@mui/material';
 
 
 
-function Signin() {
+function SigninPaciente() {
 
     const navigate = useNavigate();
 
@@ -103,7 +103,7 @@ function Signin() {
                                 variant="h6"
                                 underline="none"
                                 onClick={() => {
-                                  navigate('/CrudMedico')
+                                  navigate('/CrudPaciente')
                                 }}
                               >
                                 Cadastre-se
@@ -126,4 +126,4 @@ function Signin() {
     );
 }
 
-export default Signin; 
+export default SigninPaciente; 
