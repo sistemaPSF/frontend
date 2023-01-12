@@ -9,10 +9,11 @@ export const CustomGrid = styled(Grid)`
 `;
 
 export const Title = styled.h1`
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 50px;
+  font-weight: 200;
   font-family: 'Montserrat', sans-serif;
-  align-items: center;
+  text-align: center;
+  
   
 
 `;

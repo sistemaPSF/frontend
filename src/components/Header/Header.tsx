@@ -1,24 +1,48 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 
+import { Grid, Box } from '@mui/material';
+import { CustomGrid } from './styles';
+import { Title } from '../../packages/pages/Areas/styles';
 
-function Header({ onClick }: { onClick?: () => void}) {
-    return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" style={{justifyContent: "space-around", alignItems: "center", alignContent: "space-around"}}>
-                <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                      PROGRAMA SAÚDE DA FAMÍLIA
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-        </Box>
-    );
+import logoSus from '../../assets/logoSus.png';
+
+function Header({ onClick }: { onClick?: () => void }) {
+  return (
+    
+    <Grid container>
+      <CustomGrid
+        container
+        item
+        xs={12}
+        display="flex"
+        style= {{ color: "white", backgroundColor: "#0693E3"}}
+      >
+        <Grid
+          container
+          textAlign="center"
+          width="inherit"
+          display="flex"
+          // direction='row' 
+          justifyContent='center'
+          margin="auto"
+        >
+        
+          <Box>
+            <Title> PROGRAMA SAÚDE DA FAMÍLIA </Title>
+          </Box>
+        </Grid>
+          {/* <Grid 
+            container
+            item 
+            xs={12}
+            justifyContent="flex-end"
+            >
+              <img src={logoSus} width="125px" height="100px"/>
+          </Grid>  */}
+        
+      </CustomGrid>
+    </Grid>
+  );
 }
+
 export default Header;

@@ -1,6 +1,13 @@
 import { styled as MUIStyled } from '@mui/material/styles';
 import styled from 'styled-components';
 
+export const Title = styled.h1`
+  font-family: 'Calibri';
+  font-weight: 800;
+  font-size: 50px;
+  color: #0693E3
+`;
+
 export const Subtitle = styled.p`
     font-size: 24px;
     font-weight: 600;
@@ -19,7 +26,7 @@ export const CustomButton1 = styled.button`
 `;
 
 export const CustomButton2 = styled.button`
-    font-size: 12px;
+    font-size: 15px;
     padding: 10px 10px;
     border-radius: 5px; 
 `;

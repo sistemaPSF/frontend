@@ -17,6 +17,7 @@ export const Title = styled.h1`
   font-family: 'Calibri';
   font-weight: 800;
   font-size: 50px;
+  text-align: center;
 `;
 
 export const Subtitle = styled.p`
@@ -33,7 +34,7 @@ export const CustomGrid = styled(Grid)`
 
 export const CustomButton1 = styled.button`
     font-size: 15px;
-    padding: 10px 40px;
+    padding: 10px 20px;
     border-radius: 5px;
 `;
 
