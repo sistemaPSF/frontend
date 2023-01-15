@@ -18,7 +18,8 @@ import { CustomImage } from '../Home/styles';
 import logoSF from '../../../assets/logoSF.png';
 import { CustomText, LabelError, CustomButton1, CustomButton2, Subtitle } from '../CrudAgente/Signin/styles';
 import api from '../../../services/api';
-
+import { Header } from '../../../components/Header';
+import { Footer } from '../../../components/Footer';
 
 // const cpfRegex = [0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2};
 
@@ -47,29 +48,29 @@ function CrudPaciente() {
 
     const CadastroPaciente = () => {
         api.post('/pacientes',
-        {
-            "nome": nome,
-            "rg": rg,
-            "cpf": cpf,
-            "sus": sus,
-            "dataNascimento": dataNascimento,
-            "mae": mae,
-            "pai": pai,
-            "naturalidade": naturalidade,
-            "profissao": profissao,
-            "rua": rua,
-            "numero": numero,
-            "bairro": bairro,
-            "complemento": complemento,
-            "cidade": cidade,
-            "estado": estado,
-            "celular": celular,
-            "email": email,
-            "senha": senha,
-            "confirmarSenha": confirmarSenha
+            {
+                "nome": nome,
+                "rg": rg,
+                "cpf": cpf,
+                "sus": sus,
+                "dataNascimento": dataNascimento,
+                "mae": mae,
+                "pai": pai,
+                "naturalidade": naturalidade,
+                "profissao": profissao,
+                "rua": rua,
+                "numero": numero,
+                "bairro": bairro,
+                "complemento": complemento,
+                "cidade": cidade,
+                "estado": estado,
+                "celular": celular,
+                "email": email,
+                "senha": senha,
+                "confirmarSenha": confirmarSenha
 
 
-        }
+            }
         ).then(response => {
             navigate('/Signin')
         }).catch(err => {
@@ -86,24 +87,8 @@ function CrudPaciente() {
             textAlign="center"
         >
             <title>PSF - Cadastre-se</title>
-            <CustomGrid
-                container
-                item
-                xs={12}
-                sm={12}
-                md={5}
-                direction="column"
-                justifyContent="center"
-                alignItems="center"
-                height="100%"
-                style={{ color: 'white', backgroundColor: '#0693E3' }}
-            >
-                <Box maxWidth="500px">
-                    <Title> BEM-VINDO AO SISTEMA DE PSF! </Title>
-                    {/* <Subtitle></Subtitle> */}
-                    <CustomImage src={logoSF} alt="logoSF" />
-                </Box>
-            </CustomGrid>
+
+            <Header />
             <Grid
                 item
                 xs={12}
@@ -372,6 +357,11 @@ function CrudPaciente() {
                     </CustomButton2>
                 </Box>
             </Grid>
+            <Footer
+                onClick={() => {
+                    navigate('/');
+                }}
+            />
         </Grid>
 
     );
