@@ -31,9 +31,12 @@ function SigninPaciente() {
             return;
         }
 
-        // try {
-            // Aqui a parte de autenticação
-        // }
+        try {
+            //await authenticate(email, senha);
+            navigate('/HomePaciente');
+          } catch {
+            setError('E-mail ou senha incorretos');
+        }
     }
 
     return (

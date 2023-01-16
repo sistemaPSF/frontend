@@ -10,6 +10,7 @@ import { CrudPaciente } from '../packages/pages/CrudPaciente';
 import SigninAgente from '../packages/pages/CrudAgente/Signin/Signin';
 import SigninPaciente from '../packages/pages/CrudPaciente/Signin/Signin';
 import SigninMedico from '../packages/pages/CrudMedico/Signin/Signin';
+import { HomePaciente } from '../packages/pages/HomePaciente';
 
 
 function RoutesApp() {
@@ -25,6 +26,7 @@ function RoutesApp() {
                     <Route path="/CrudMedico" element={<CrudMedico />} />
                     <Route path="/CrudAgente" element={<CrudAgente />} />
                     <Route path="/CrudPaciente" element={<CrudPaciente />} />
+                    <Route path="/HomePaciente" element={<HomePaciente />} />
                 </Route>
             </Routes>
         </BrowserRouter>

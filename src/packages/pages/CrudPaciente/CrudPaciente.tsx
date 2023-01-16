@@ -106,13 +106,14 @@ function CrudPaciente() {
                     gap="15px"
                     borderRadius="5px"
                     boxShadow="0 1px 10px #0003"
-                    maxWidth="350px"
+                    maxWidth="400px"
                 >
                     <Subtitle style={{ color: '#0693E3' }}> Cadastre-se </Subtitle>
                     <TextField style={{ backgroundColor: '#AFDCF6' }}
                         data-testid="nome"
                         label="Nome"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={nome}
                         onChange={(e) => {
@@ -125,6 +126,7 @@ function CrudPaciente() {
                         data-testid="rg"
                         label="RG"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={rg}
                         onChange={(e) => {
@@ -137,6 +139,7 @@ function CrudPaciente() {
                         data-testid="cpf"
                         label="CPF"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={cpf}
                         onChange={(e) => {
@@ -148,6 +151,7 @@ function CrudPaciente() {
                         data-testid="sus"
                         label="SUS"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={sus}
                         onChange={(e) => {
@@ -160,6 +164,7 @@ function CrudPaciente() {
                         data-testid="dataNascimento"
                         label="Data de Nascimento"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={dataNascimento}
                         onChange={(e) => {
@@ -172,6 +177,7 @@ function CrudPaciente() {
                         data-testid="mae"
                         label="Mãe"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={mae}
                         onChange={(e) => {
@@ -183,6 +189,7 @@ function CrudPaciente() {
                         data-testid="pai"
                         label="Pai"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={pai}
                         onChange={(e) => {
@@ -195,6 +202,7 @@ function CrudPaciente() {
                         data-testid="naturalidade"
                         label="Naturalidade"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={naturalidade}
                         onChange={(e) => {
@@ -207,6 +215,7 @@ function CrudPaciente() {
                         data-testid="profissao"
                         label="Profissão"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={profissao}
                         onChange={(e) => {
@@ -219,6 +228,7 @@ function CrudPaciente() {
                         data-testid="rua"
                         label="Rua"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={rua}
                         onChange={(e) => {
@@ -231,6 +241,7 @@ function CrudPaciente() {
                         data-testid="numero"
                         label="Número"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={numero}
                         onChange={(e) => {
@@ -243,6 +254,7 @@ function CrudPaciente() {
                         data-testid="bairro"
                         label="Bairro"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={bairro}
                         onChange={(e) => {
@@ -255,6 +267,7 @@ function CrudPaciente() {
                         data-testid="complemento"
                         label="Complemento"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={complemento}
                         onChange={(e) => {
@@ -267,6 +280,7 @@ function CrudPaciente() {
                         data-testid="cidade"
                         label="Cidade"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={cidade}
                         onChange={(e) => {
@@ -279,6 +293,7 @@ function CrudPaciente() {
                         data-testid="estado"
                         label="Estado"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={estado}
                         onChange={(e) => {
@@ -291,6 +306,7 @@ function CrudPaciente() {
                         data-testid="celular"
                         label="Celular"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={celular}
                         onChange={(e) => {
@@ -303,6 +319,7 @@ function CrudPaciente() {
                         data-testid="email"
                         label="Email"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={email}
                         onChange={(e) => {
@@ -315,6 +332,7 @@ function CrudPaciente() {
                         data-testid="senha"
                         label="Digite sua senha"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={senha}
                         onChange={(e) => {
@@ -325,6 +343,7 @@ function CrudPaciente() {
                         data-testid="ConfirmarSenha"
                         label="Confirme a sua senha"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={confirmarSenha}
                         onChange={(e) => {

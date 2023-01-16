@@ -87,13 +87,14 @@ function CrudMedico() {
                     gap="15px"
                     borderRadius="5px"
                     boxShadow="0 1px 10px #0003"
-                    maxWidth="350px"
+                    maxWidth="400px"
                 >
                     <Subtitle style={{ color: '#0693E3' }}> Cadastre-se </Subtitle>
                     <TextField style={{ backgroundColor: '#AFDCF6' }}
                         data-testid="nome"
                         label="Nome"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={nome}
                         onChange={(e) => {
@@ -106,6 +107,7 @@ function CrudMedico() {
                         data-testid="rg"
                         label="RG"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={rg}
                         onChange={(e) => {
@@ -117,6 +119,7 @@ function CrudMedico() {
                         data-testid="cpf"
                         label="CPF"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={cpf}
                         onChange={(e) => {
@@ -129,6 +132,7 @@ function CrudMedico() {
                         data-testid="dataNascimento"
                         label="Data de Nascimento"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={dataNascimento}
                         onChange={(e) => {
@@ -141,6 +145,7 @@ function CrudMedico() {
                         data-testid="crm"
                         label="CRM"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={crm}
                         onChange={(e) => {
@@ -153,6 +158,7 @@ function CrudMedico() {
                         data-testid="especialidade"
                         label="Especialidade"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={especialidade}
                         onChange={(e) => {
@@ -165,6 +171,7 @@ function CrudMedico() {
                         data-testid="celular"
                         label="Celular"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={celular}
                         onChange={(e) => {
@@ -177,6 +184,7 @@ function CrudMedico() {
                         data-testid="email"
                         label="Email"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={email}
                         onChange={(e) => {
@@ -188,6 +196,7 @@ function CrudMedico() {
                         data-testid="senha"
                         label="Digite sua senha"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={senha}
                         onChange={(e) => {
@@ -198,6 +207,7 @@ function CrudMedico() {
                         data-testid="ConfirmarSenha"
                         label="Confirme a sua senha"
                         variant="outlined"
+                        size="small"
                         fullWidth
                         value={confirmarSenha}
                         onChange={(e) => {
