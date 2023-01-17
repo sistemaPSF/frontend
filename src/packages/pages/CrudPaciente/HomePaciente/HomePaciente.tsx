@@ -1,5 +1,5 @@
-import { Header } from '../../../components/Header';
-import { Footer } from '../../../components/Footer';
+import { Header } from '../../../../components/Header';
+import { Footer } from '../../../../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { Box, Grid } from '@mui/material'; 
 import { Button } from '@material-ui/core';

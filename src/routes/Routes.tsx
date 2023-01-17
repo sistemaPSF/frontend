@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { Home } from '../packages/pages/Home';
+import { Home } from '../packages/pages/HomeInicio';
 // import { Signin } from '../packages/pages/CrudAgente/Signin';
 import { CrudMedico } from '../packages/pages/CrudMedico';
 import { CrudAgente } from '../packages/pages/CrudAgente';
@@ -10,7 +10,9 @@ import { CrudPaciente } from '../packages/pages/CrudPaciente';
 import SigninAgente from '../packages/pages/CrudAgente/Signin/Signin';
 import SigninPaciente from '../packages/pages/CrudPaciente/Signin/Signin';
 import SigninMedico from '../packages/pages/CrudMedico/Signin/Signin';
-import { HomePaciente } from '../packages/pages/HomePaciente';
+import { HomePaciente } from '../packages/pages/CrudPaciente/HomePaciente';
+import { AgendarConsulta } from '../packages/pages/CrudPaciente/AgendarConsulta';
+import { Perfil } from '../packages/pages/CrudPaciente/Perfil';
 
 
 function RoutesApp() {
@@ -27,6 +29,9 @@ function RoutesApp() {
                     <Route path="/CrudAgente" element={<CrudAgente />} />
                     <Route path="/CrudPaciente" element={<CrudPaciente />} />
                     <Route path="/HomePaciente" element={<HomePaciente />} />
+                    <Route path="/AgendarConsulta" element={<AgendarConsulta />} />
+                    <Route path="/Perfil" element={<Perfil />} />
+
                 </Route>
             </Routes>
         </BrowserRouter>

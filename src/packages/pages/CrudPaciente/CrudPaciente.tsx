@@ -13,8 +13,8 @@ import {
     TextField,
 } from '@mui/material';
 
-import { CustomGrid, Title } from '../Home/styles';
-import { CustomImage } from '../Home/styles';
+import { CustomGrid, Title } from '../HomeInicio/styles';
+import { CustomImage } from '../HomeInicio/styles';
 import logoSF from '../../../assets/logoSF.png';
 import { CustomText, LabelError, CustomButton1, CustomButton2, Subtitle } from '../CrudAgente/Signin/styles';
 import api from '../../../services/api';

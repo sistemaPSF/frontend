@@ -1,4 +1,4 @@
-export * from './pages/Home'; 
+export * from './pages/HomeInicio'; 
 export * from './pages/Areas';
 export * from './pages/CrudPaciente'
 export * from './pages/CrudMedico';

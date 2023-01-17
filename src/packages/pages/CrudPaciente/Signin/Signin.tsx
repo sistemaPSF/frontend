@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Box, Grid, TextField } from '@mui/material';
-import { CustomGrid } from '../../Home/styles';
+import { CustomGrid } from '../../HomeInicio/styles';
 import { Title } from './styles';
 import { Subtitle } from './styles';
 import { CustomButton1 } from './styles';
