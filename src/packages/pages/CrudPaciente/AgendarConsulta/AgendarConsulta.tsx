@@ -12,7 +12,10 @@ import { Header } from '../../../../components/Header';
 import { Footer } from '../../../../components/Footer';
 import { CustomGrid, Title } from './styles';
 import { CustomButton1 } from '../../HomeInicio/styles';
-
+import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+import { IconButton } from '@mui/joy';
+import { useNavigate } from 'react-router-dom';
+import {  Link } from '@material-ui/core';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -52,6 +55,7 @@ const rows = [
 ];
 
 function AgendarConsulta () {
+  const navigate = useNavigate();
   return (
     <Grid container>
          <Box width="100%" minWidth="650px">
@@ -83,6 +87,22 @@ function AgendarConsulta () {
           borderRadius="12px"
           gap={10}
         >
+          <Box display="flex" justifyContent="right" alignItems="right">
+                <IconButton>
+                    <AccountCircleRoundedIcon style={{ fontSize: 50, color: "#0693E3", position: "absolute", top: "-150px", left: "630px" }}/>
+                </IconButton>
+                <Link
+                    style= {{ color: "#0693E3", position: "absolute", top: "180px", left: "1280px" }}
+                    component="button"
+                    variant="h6"
+                    underline="none"
+                    onClick={() => {
+                        navigate('/Perfil')
+                    }}
+                    >
+                    Meu Perfil
+                </Link>
+            </Box>
           <Box width="100%">
             <Box
               width="50%"
