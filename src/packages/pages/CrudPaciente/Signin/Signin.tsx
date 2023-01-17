@@ -11,6 +11,7 @@ import { CustomImage, LabelError} from './styles';
 import { Header } from '../../../../components/Header';
 import { Footer } from '../../../../components/Footer';
 import { Link } from '@mui/material';
+import api from '../../../../services/api';
 
 
 
@@ -18,7 +19,7 @@ function SigninPaciente() {
 
     const navigate = useNavigate();
 
-    const [cpf, setCpf] = useState('');
+    const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [error, setError] = useState('');
 
@@ -26,17 +27,27 @@ function SigninPaciente() {
     // Tratamento de Signin
 
     const handleLogin = async () => {
-        if (!cpf || !senha) {
+        if (!email || !senha) {
             setError('Preencha todos os campos');
             return;
+        } else {
+            return (
+                api.post('/pacientes/login', 
+                {
+                    username: email,
+                    password: senha
+                })
+                .then(response => {
+                    navigate('/HomePaciente')
+                }).catch(err => {
+                    setError('Email ou senha inválidos');
+                })
+            )
         }
 
-        try {
-            //await authenticate(email, senha);
-            navigate('/HomePaciente');
-          } catch {
-            setError('E-mail ou senha incorretos');
-        }
+        // try {
+            // Aqui a parte de autenticação
+        // }
     }
 
     return (
@@ -68,13 +79,13 @@ function SigninPaciente() {
                     <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', flexWrap: 'wrap' }}>
                         
                         <TextField style={{ backgroundColor: '#AFDCF6' }}
-                            data-testid="inputCpf"
-                            label="CPF"
+                            data-testid="inputEmail"
+                            label="Email"
                             variant="outlined"
                             fullWidth
-                            value={cpf}
+                            value={email}
                             onChange={(e) => {
-                                setCpf(e.target.value);
+                                setEmail(e.target.value);
                             }}
                         /> 
                         <TextField style={{ backgroundColor: '#AFDCF6' }}

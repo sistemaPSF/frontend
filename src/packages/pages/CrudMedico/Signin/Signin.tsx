@@ -11,6 +11,7 @@ import { CustomImage, LabelError} from './styles';
 import { Header } from '../../../../components/Header';
 import { Footer } from '../../../../components/Footer';
 import { Link } from '@mui/material';
+import api from '../../../../services/api';
 
 
 
@@ -18,7 +19,7 @@ function SigninMedico() {
 
     const navigate = useNavigate();
 
-    const [cpf, setCpf] = useState('');
+    const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [error, setError] = useState('');
 
@@ -26,9 +27,23 @@ function SigninMedico() {
     // Tratamento de Signin
 
     const handleLogin = async () => {
-        if (!cpf || !senha) {
+        if (!email || !senha) {
             setError('Preencha todos os campos');
             return;
+        } else {
+            return (
+                api.post('/medicos/login', 
+                {
+                    username: email,
+                    password: senha
+                })
+                .then(response => {
+                    alert('Login feito com sucesso')
+                    // navigate('/HomePaciente')
+                }).catch(err => {
+                    setError('Email ou senha inválidos');
+                })
+            )
         }
 
         // try {
@@ -65,13 +80,13 @@ function SigninMedico() {
                     <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', flexWrap: 'wrap' }}>
                         
                         <TextField style={{ backgroundColor: '#AFDCF6' }}
-                            data-testid="inputCpf"
-                            label="CPF"
+                            data-testid="inputEmail"
+                            label="Email"
                             variant="outlined"
                             fullWidth
-                            value={cpf}
+                            value={email}
                             onChange={(e) => {
-                                setCpf(e.target.value);
+                                setEmail(e.target.value);
                             }}
                         /> 
                         <TextField style={{ backgroundColor: '#AFDCF6' }}
