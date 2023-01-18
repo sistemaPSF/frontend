@@ -3,13 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import {
     Box,
-    FormControl,
-    FormControlLabel,
-    FormLabel,
     Grid,
-    IconButton,
-    Radio,
-    RadioGroup,
     TextField,
 } from '@mui/material';
 
@@ -79,36 +73,31 @@ function CrudPaciente() {
     }
 
     return (
-        <Grid
-            container
-            height="100vh"
-            justifyContent="center"
-            alignItems="center"
-            textAlign="center"
-        >
-            <title>PSF - Cadastre-se</title>
-
-            <Header />
+        <Grid container>
+            <Header/>
             <Grid
+                container
+                justifyContent="center"
+                alignItems="center"
+                textAlign="center"
+                my="20px"
+            >
+            <CustomGrid
+                container
                 item
                 xs={12}
                 sm={12}
-                md={7}
-                container
+                md={8}
+                p="32px"
                 direction="column"
                 justifyContent="center"
                 alignItems="center"
-                minWidth="400px" // variant="contained"
-
+                width="60vh"
+                minHeight="65vh"
+                border="2px solid #0693E3"
+                borderRadius="12px"
             >
-                <Box
-                    p="20px"
-                    gap="15px"
-                    borderRadius="5px"
-                    boxShadow="0 1px 10px #0003"
-                    maxWidth="400px"
-                >
-                    <Subtitle style={{ color: '#0693E3' }}> Cadastre-se </Subtitle>
+                    <Subtitle style={{ color: '#0693E3' }}>  CADASTRO </Subtitle>
                     <TextField style={{ backgroundColor: '#AFDCF6' }}
                         data-testid="nome"
                         label="Nome"
@@ -338,6 +327,7 @@ function CrudPaciente() {
                         onChange={(e) => {
                             setSenha(e.target.value)
                         }}
+                        margin="dense"
                     />
                     <TextField style={{ backgroundColor: '#AFDCF6' }}
                         data-testid="ConfirmarSenha"
@@ -353,7 +343,7 @@ function CrudPaciente() {
                     />
                     <LabelError> {error} </LabelError>
                     <Box textAlign="end" width="100%" mt="4px">
-                        <CustomButton1 style={{ color: 'white', backgroundColor: '#0693E3' }}
+                        <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#0693E3' }}
                             data-testid="cadastrar"
                             // variant="contained"
                             // onClick={handleSignup}
@@ -362,27 +352,10 @@ function CrudPaciente() {
                             Criar conta
                         </CustomButton1>
                     </Box>
-                </Box>
-                <Box display="flex" flexDirection="column" justifyContent="end">
-                    <CustomText> Faça seu login </CustomText>
-                    <CustomButton2 style={{ color: 'black', backgroundColor: '#E0E6F8' }}
-                        data-testid="btnEntrar"
-                        // variant="contained"
-                        onClick={() => {
-                            navigate('/Signin')
-                        }}
-                    >
-                        Entrar
-                    </CustomButton2>
-                </Box>
+                </CustomGrid>
             </Grid>
-            <Footer
-                onClick={() => {
-                    navigate('/');
-                }}
-            />
+            <Footer />
         </Grid>
-
     );
 }
 

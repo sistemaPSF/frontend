@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Grid, TextField } from '@mui/material';
 import { CustomGrid } from '../../HomeInicio/styles';
 import { Title } from './styles';
-import { Subtitle } from './styles';
 import { CustomButton1 } from './styles';
 import { CustomButton2 } from './styles';
 import { CustomImage, LabelError} from './styles';
