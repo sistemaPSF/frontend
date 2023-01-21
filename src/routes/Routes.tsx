@@ -13,6 +13,7 @@ import SigninMedico from '../packages/pages/CrudMedico/Signin/Signin';
 import { HomePaciente } from '../packages/pages/CrudPaciente/HomePaciente';
 import { AgendarConsulta } from '../packages/pages/CrudPaciente/AgendarConsulta';
 import { Perfil } from '../packages/pages/CrudPaciente/Perfil';
+import { ConsultasAgendadas } from '../packages/pages/CrudMedico/ConsultasAgendadas';
 
 
 function RoutesApp() {
@@ -31,6 +32,7 @@ function RoutesApp() {
                     <Route path="/HomePaciente" element={<HomePaciente />} />
                     <Route path="/AgendarConsulta" element={<AgendarConsulta />} />
                     <Route path="/Perfil" element={<Perfil />} />
+                    <Route path="/ConsultasAgendadas" element={<ConsultasAgendadas />} />
 
                 </Route>
             </Routes>

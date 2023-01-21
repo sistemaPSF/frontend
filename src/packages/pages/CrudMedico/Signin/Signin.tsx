@@ -38,8 +38,8 @@ function SigninMedico() {
                     password: senha
                 })
                 .then(response => {
-                    alert('Login feito com sucesso')
-                    // navigate('/HomePaciente')
+                    // alert('Login feito com sucesso')
+                    navigate('/ConsultasAgendadas')
                 }).catch(err => {
                     setError('Email ou senha inválidos');
                 })

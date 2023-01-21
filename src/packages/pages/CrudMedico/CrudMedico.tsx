@@ -52,7 +52,7 @@ function CrudMedico() {
                 "confirmarSenha": confirmarSenha
             }
         ).then(response => {
-            navigate('/Signin')
+            navigate('/SigninMedico')
         }).catch(err => {
             alert(err)
         })

@@ -66,7 +66,7 @@ function CrudPaciente() {
 
             }
         ).then(response => {
-            navigate('/Signin')
+            navigate('/SigninPaciente')
         }).catch(err => {
             alert(err)
         })
