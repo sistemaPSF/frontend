@@ -71,7 +71,7 @@ function SigninAgente() {
                     justifyContent="center"
                     alignItems="center"
                     width="70vh"
-                    minHeight="65vh"
+                    minHeight="68vh"
                     border="1px solid #0693E3"
                     borderRadius="2px"
                 >
@@ -102,7 +102,7 @@ function SigninAgente() {
                         />  
                         <LabelError>{error}</LabelError>
                         <Box textAlign="end" width="100%">
-                            <CustomButton1 style= {{ color: 'white', backgroundColor: '#0693E3' }}
+                            <CustomButton1 style= {{ borderColor: '#0693E3', color: 'white', backgroundColor: '#0693E3' }}
                                 data-testid="btnEntrar"
                                 onClick={handleLogin}
                                 >
@@ -115,6 +115,7 @@ function SigninAgente() {
                                 style= {{ color: '#034C81' }}
                                 component="button"
                                 variant="h6"
+                                fontWeight="bold"
                                 underline="none"
                                 onClick={() => {
                                   navigate('/CrudAgente')

@@ -39,6 +39,7 @@ export const CustomButton1 = styled.button`
     font-size: 15px;
     padding: 10px 40px;
     border-radius: 5px;
+    font-weight: bold;
 `;
 
 

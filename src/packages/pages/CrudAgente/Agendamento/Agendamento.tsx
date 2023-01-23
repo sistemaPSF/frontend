@@ -116,7 +116,7 @@ function Agendamento() {
                         margin="dense"
                     />
 
-                    <Box textAlign="end" width="90%" mt="4px">
+                    <Box textAlign="end" width="100%" mt="5px">
                         <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#0693E3' }}
                             data-testid="cadastrar"
                             onClick={() => Agendamento()}

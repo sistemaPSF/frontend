@@ -33,7 +33,7 @@ function Home() {
                     <Subtitle> Programa Saúde da Família </Subtitle>
                 </Box>
                 <Box maxWidth="1000px">
-                    <CustomButton1 style= {{ color: 'black', backgroundColor: '#E0E6F8' }}
+                    <CustomButton1 style= {{  borderColor:'#FFF', color: '#085fff', backgroundColor: '#FFF' }}
                     onClick={() => {
                         navigate('/Areas');
                       }}

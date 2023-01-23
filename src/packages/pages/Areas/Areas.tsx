@@ -32,8 +32,8 @@ function Areas() {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          width="60vh"
-          minHeight="65vh"
+          width="70vh"
+          minHeight="68vh"
           // border="1px solid #000"
           borderRadius="12px"
         >
@@ -48,7 +48,7 @@ function Areas() {
                 <IconButton>
                   <PersonIcon style={{ fontSize: 200, color: 'white'}}/>
                 </IconButton>
-                <CustomButton1 style={{ backgroundColor: "#FFFFFF"}}
+                <CustomButton1 style= {{  borderColor:'#FFF', color: '#085fff', backgroundColor: '#FFF' }}
                 
                 onClick={() => {
                   navigate('/SigninPaciente') 
@@ -61,7 +61,7 @@ function Areas() {
                 <IconButton>
                   <PersonIcon style={{ fontSize: 200, color: 'white'}}/>
                 </IconButton>
-                <CustomButton1 style={{ backgroundColor: "#FFFFFF"}}
+                <CustomButton1 style= {{  borderColor:'#FFF', color: '#085fff', backgroundColor: '#FFF' }}
                 
                 onClick={() => {
                   navigate('/SigninAgente') 
@@ -74,7 +74,7 @@ function Areas() {
                 <IconButton>
                   <PersonIcon style={{ fontSize: 200, color: 'white'}}/>
                 </IconButton>
-                <CustomButton1 style={{ backgroundColor: "#FFFFFF"}}
+                <CustomButton1 style= {{  borderColor:'#FFF', color: '#085fff', backgroundColor: '#FFF' }}
                 
                 onClick={() => {
                   navigate('/SigninMedico') 
