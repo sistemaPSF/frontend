@@ -14,6 +14,8 @@ import { HomePaciente } from '../packages/pages/CrudPaciente/HomePaciente';
 import { AgendarConsulta } from '../packages/pages/CrudPaciente/AgendarConsulta';
 import { Perfil } from '../packages/pages/CrudPaciente/Perfil';
 import { ConsultasAgendadas } from '../packages/pages/CrudMedico/ConsultasAgendadas';
+import { Agendamento } from '../packages/pages/CrudAgente/Agendamento';
+import { ListagemConsultas } from '../packages/pages/CrudAgente/ListagemConsultas';
 
 
 function RoutesApp() {
@@ -33,6 +35,8 @@ function RoutesApp() {
                     <Route path="/AgendarConsulta" element={<AgendarConsulta />} />
                     <Route path="/Perfil" element={<Perfil />} />
                     <Route path="/ConsultasAgendadas" element={<ConsultasAgendadas />} />
+                    <Route path="/Agendamento" element={<Agendamento />} /> 
+                    <Route path="/ListagemConsultas" element={<ListagemConsultas />} />
 
                 </Route>
             </Routes>
