@@ -20,8 +20,8 @@ function Agendamento() {
 
     const navigate = useNavigate();
 
-    const Cadastrar = () => {
-        api.post('/agente',
+    const CadastrarAgendamento = () => {
+        api.post('/agendamento',
             {
                 "medico": medico,
                 "especialidade": especialidade,
@@ -29,11 +29,11 @@ function Agendamento() {
                 "horario": horario
             }
         )
-        // ).then(response => {
-        //     navigate('/Signin')
-        // }).catch(err => {
-        //     alert(err)
-        // })
+        .then(response => {
+            navigate('/ListagemConsultas')
+        }).catch(err => {
+            alert(err)
+        })
     }
 
     return (
@@ -119,13 +119,21 @@ function Agendamento() {
                     <Box textAlign="end" width="100%" mt="5px">
                         <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#0693E3' }}
                             data-testid="cadastrar"
-                            onClick={() => Agendamento()}
+                            onClick={() =>  CadastrarAgendamento()}
                         >
                             Cadastrar
                         </CustomButton1>
                     </Box>
                 </CustomGrid>
                 <Box textAlign="end" width="90%" mt="4px">
+                    {/* <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#0693E3' }}
+                            data-testid="sair"
+                            onClick={() => {
+                                navigate('/ListagemConsultas')
+                            }}
+                    >
+                        Consultas Cadastradas
+                    </CustomButton1> */}
                     <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
                         data-testid="sair"
                         onClick={() => {

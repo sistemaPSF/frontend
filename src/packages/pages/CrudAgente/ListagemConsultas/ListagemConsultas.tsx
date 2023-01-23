@@ -119,6 +119,14 @@ function ListagemConsultas() {
                 </CustomGrid>
             </Grid>
             <Box textAlign="end" width="90%" mt="4px">
+                {/* <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#0693E3' }}
+                        data-testid="sair"
+                        onClick={() => {
+                            navigate('/Agendamento')
+                        }}
+                >
+                    Cadastrar uma nova consulta
+                </CustomButton1> */}
                 <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
                     data-testid="sair"
                     onClick={() => {

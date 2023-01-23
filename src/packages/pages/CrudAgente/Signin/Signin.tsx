@@ -38,8 +38,8 @@ function SigninAgente() {
                     password: senha
                 })
                 .then(response => {
-                    // navigate('/HomePaciente')
-                    alert('Login feito com sucesso')
+                    navigate('/Agendamento')
+                   
                 }).catch(err => {
                     setError('Email ou senha inválidos');
                 })
