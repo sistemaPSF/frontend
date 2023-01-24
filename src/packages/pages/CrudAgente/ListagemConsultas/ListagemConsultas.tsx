@@ -9,6 +9,8 @@ import { Header } from '../../../../components/Header';
 import { Footer } from '../../../../components/Footer';
 import { tableCellClasses } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import api from '../../../../services/api';
 
 
 
@@ -50,7 +52,52 @@ const rows = [
 
 
 function ListagemConsultas() {
+    const [ listagemconsultas, setListagemConsultas ]= useState([] as any[]);
     const navigate = useNavigate();
+    
+    useEffect(() => {
+        api.get('/agendamento')
+        .then(res => {
+          console.log(res.data)
+          setListagemConsultas(res.data)
+        }).catch(err => console.log(err))
+      }, [])
+
+      const consultas = listagemconsultas.map((listagemconsultas, index) => {
+        return(
+            <TableBody>
+
+          
+            <TableRow key={listagemconsultas.id}>
+                <TableCell>{listagemconsultas.medico}</TableCell>
+                <TableCell>{listagemconsultas.especialidade}</TableCell>
+                <TableCell>{listagemconsultas.data}</TableCell>
+                <TableCell>{listagemconsultas.horario}</TableCell>
+
+                <StyledTableCell align="right">
+                    <CustomButton1 style={{ borderColor: 'white', color: 'white', backgroundColor: '#008000' }}
+                        data-testid="sair"
+                        onClick={() => {
+                            navigate('/')
+                        }}
+                    >
+                        Editar
+                    </CustomButton1>
+
+                    <CustomButton1 style={{ borderColor: 'white', color: 'white', backgroundColor: '#FF0000' }}
+                        data-testid="sair"
+                        onClick={() => {
+                            navigate('/')
+                        }}
+                    >
+                        Cancelar
+                    </CustomButton1>
+                </StyledTableCell>
+            </TableRow>
+            
+        </TableBody>
+        )
+      })
     return (
         <Grid container>
             <Header />
@@ -86,34 +133,7 @@ function ListagemConsultas() {
                                     <StyledTableCell align="center">CONSULTAS</StyledTableCell>
                                 </TableRow>
                             </TableHead>
-                            <TableBody>
-
-                                {rows.map((row) => (
-                                    <TableRow key={row.consultas}>
-                                        <TableCell>{row.consultas}</TableCell>
-
-                                        <StyledTableCell align="right">
-                                            <CustomButton1 style={{ borderColor: 'white', color: 'white', backgroundColor: '#008000' }}
-                                                data-testid="sair"
-                                                onClick={() => {
-                                                    navigate('/')
-                                                }}
-                                            >
-                                                Editar
-                                            </CustomButton1>
-
-                                            <CustomButton1 style={{ borderColor: 'white', color: 'white', backgroundColor: '#FF0000' }}
-                                                data-testid="sair"
-                                                onClick={() => {
-                                                    navigate('/')
-                                                }}
-                                            >
-                                                Cancelar
-                                            </CustomButton1>
-                                        </StyledTableCell>
-                                    </TableRow>
-                                ))}
-                            </TableBody>
+                           {consultas}
                         </Table>
                     </TableContainer>
                 </CustomGrid>

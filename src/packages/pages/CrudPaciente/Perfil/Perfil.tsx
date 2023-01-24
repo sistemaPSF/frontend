@@ -5,9 +5,77 @@ import { Title } from '../../Areas/styles';
 import { Header } from '../../../../components/Header';
 import { Footer } from '../../../../components/Footer';
 import { CustomGrid } from '../../Areas/styles';
+import { useEffect, useState } from 'react';
+import api from '../../../../services/api';
+import { CustomButton3 } from './styles';
+
 
 
 function Perfil() {
+  const [paciente, setDate ]= useState([] as any[]);
+  useEffect(() => {
+    api.get('/pacientes')
+    .then(res => {
+      console.log(res.data)
+      setDate(res.data)
+    }).catch(err => console.log(err))
+  }, [])
+
+  const arr = paciente.map((paciente, index) => {
+    return (
+      <Box
+        width="75%"
+        display="flex"
+        flexDirection="column"
+        textAlign="left"
+      >
+        <label>Nome:
+        <text> {paciente.nome}</text>
+        </label>
+        
+        <label>RG:
+        <text> {paciente.rg}</text>
+        </label>
+        
+        <label>CPF:
+        <text> {paciente.cpf} </text>
+        </label>
+        
+        <label>SUS:
+        <text> {paciente.sus}</text>
+        </label>
+        <label>Pai: 
+        <text> {paciente.pai} </text>
+        </label>
+
+        <label>Mãe:
+        <text> {paciente.mae} </text>
+        </label>
+
+        <label>Naturalidade:
+        <text> {paciente.naturalidade} </text>
+        </label>
+
+        <label>Profissão:
+        <text>{paciente.profissao} </text>
+        </label>
+        
+        <label>Endereço: 
+        <text> {paciente.rua}, {paciente.numero}, {paciente.bairro}, {paciente.cidade}, {paciente.estado}    </text>
+        </label>
+        
+        <label>
+        <text> {paciente.email} </text>
+        </label>
+        
+        <label>Celular:
+        <text> {paciente.celular} </text>
+        </label>
+        
+      </Box>
+  
+    )
+  })
   return (
     <Grid container>
       <Header />
@@ -54,44 +122,16 @@ function Perfil() {
               textAlign="left"
             >
             {/* Puxar do Banco */}
-            <label>Nome:
-              <text> Vanessa dos Santos Pontes  </text>
-            </label>
-            <label>RG:
-              <text> 00000000  </text>
-            </label>
-            <label>CPF:
-              <text> _____  </text>
-            </label>
-            <label>SUS:
-              <text> _____  </text>
-            </label>
-            <label>Data de Nascimento:
-              <text> _____  </text>
-            </label>
-            <label>Mãe:
-              <text> _____  </text>
-            </label>
-            <label>Pai:
-              <text> _____ </text>
-            </label>
-            <label>Naturalidade:
-              <text> _____  </text>
-            </label>
-            <label>Profissão:
-              <text> _____  </text>
-            </label>
-            <label>Endereço:
-              <text> _____  </text>
-            </label>
+            {arr}
+        
             </Box>
-              {/* <Box display="flex" width="100%" justifyContent="center">
+              <Box display="flex" width="100%" justifyContent="center">
                 <Box width="90%" textAlign="right">
                   <CustomButton3 style={{ borderColor: " #75D284", backgroundColor: " #75D284" }}>
                     Editar
                   </CustomButton3>
                 </Box>
-              </Box> */}
+              </Box>
 
             </Box>
         </CustomGrid>

@@ -16,6 +16,8 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import { IconButton } from '@mui/joy';
 import { useNavigate } from 'react-router-dom';
 import {  Link } from '@material-ui/core';
+import { useEffect, useState } from 'react';
+import api from '../../../../services/api';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -55,7 +57,35 @@ const rows = [
 ];
 
 function AgendarConsulta () {
+  const [consultas, setConsultas ]= useState([] as any[]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    api.get('/agendamento')
+    .then(res => {
+      console.log(res.data)
+      setConsultas(res.data)
+    }).catch(err => console.log(err))
+  }, [])
+
+  const listarConsultas = consultas.map((consultas, index) => {
+    return (
+      <TableBody>
+          <StyledTableRow key={consultas.medico}>
+          <StyledTableCell component="th" scope="row">{consultas.medico}</StyledTableCell>
+          <StyledTableCell align="right">{consultas.especialidade}</StyledTableCell>
+          <StyledTableCell align="right">{consultas.data}</StyledTableCell>
+          <StyledTableCell align="right">{consultas.horario}</StyledTableCell>
+          <StyledTableCell align="right">
+            <CustomButton1 style={{ borderColor: "#ade1ff", backgroundColor: "#ade1ff" }}>
+              AGENDAR
+            </CustomButton1>
+          </StyledTableCell>
+          </StyledTableRow>
+
+      </TableBody>             
+    )
+  })
   return (
     <Grid container>
          <Box width="100%" minWidth="650px">
@@ -133,21 +163,7 @@ function AgendarConsulta () {
                         <StyledTableCell align="right"> Agendar Consulta </StyledTableCell>
                     </TableRow>
                     </TableHead>
-                    <TableBody>
-                    {rows.map((row) => (
-                        <StyledTableRow key={row.medico}>
-                        <StyledTableCell component="th" scope="row">{row.medico}</StyledTableCell>
-                        <StyledTableCell align="right">{row.especialidade}</StyledTableCell>
-                        <StyledTableCell align="right">{row.data}</StyledTableCell>
-                        <StyledTableCell align="right">{row.horario}</StyledTableCell>
-                        <StyledTableCell align="right">
-                          <CustomButton1 style={{ borderColor: "#ade1ff", backgroundColor: "#ade1ff" }}>
-                            AGENDAR
-                          </CustomButton1>
-                        </StyledTableCell>
-                        </StyledTableRow>
-                    ))}
-                    </TableBody>
+                    {listarConsultas}
                 </Table>
             </TableContainer>
             </Box>
