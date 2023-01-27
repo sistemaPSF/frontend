@@ -11,6 +11,9 @@ import { Header } from '../../../../components/Header';
 import { Footer } from '../../../../components/Footer';
 import { Title, CustomGrid } from './styles';
 import { CustomButton1 } from '../Signin/styles';
+import { AuthContext } from '../../../../contexts/Auth/AuthContext';
+import { useContext, useState } from 'react';
+import { Medico } from '../../../../types/Medicos';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -48,6 +51,9 @@ const rows = [
 
 function ConsultasAgendadas(){
     const navigate = useNavigate();
+    const auth = useContext(AuthContext);
+
+   
     return(
         <Grid container>
             <Box width="100%" minWidth="650px">
@@ -88,6 +94,7 @@ function ConsultasAgendadas(){
                      gap={1}
                      alignItems="center"
                     >
+                       
                         <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 700 }} aria-label="customized table">
                             <TableBody>
@@ -103,6 +110,7 @@ function ConsultasAgendadas(){
                                 </StyledTableCell>
                                 </StyledTableRow>
                             ))}
+                            
                             </TableBody>
                         </Table>
                         </TableContainer>

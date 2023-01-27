@@ -11,6 +11,7 @@ import { tableCellClasses } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import api from '../../../../services/api';
+import { Agendamanto } from '../../../../types/Agendamento';
 
 
 
@@ -36,23 +37,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-function createData(
-    consultas: string,
-
-) {
-    return { consultas };
-}
-
-const rows = [
-    createData('Consulta 1'),
-    createData('Consulta 2'),
-    createData('Consulta 3'),
-    createData('Consulta 4'),
-];
-
-
 function ListagemConsultas() {
-    const [ listagemconsultas, setListagemConsultas ]= useState([] as any[]);
+    const [ listagemconsultas, setListagemConsultas ]= useState<Agendamanto[]>([]);
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -63,32 +49,39 @@ function ListagemConsultas() {
         }).catch(err => console.log(err))
       }, [])
 
+    const cancelarConsulta = () => {
+        api.delete('/agendamento')
+        .then(response => {
+            navigate('/ListagemConsultas')
+        }).catch(err => {
+            alert(err)
+        })
+    }
+
       const consultas = listagemconsultas.map((listagemconsultas, index) => {
         return(
             <TableBody>
 
           
-            <TableRow key={listagemconsultas.id}>
+            <TableRow >
                 <TableCell>{listagemconsultas.medico}</TableCell>
                 <TableCell>{listagemconsultas.especialidade}</TableCell>
                 <TableCell>{listagemconsultas.data}</TableCell>
                 <TableCell>{listagemconsultas.horario}</TableCell>
 
                 <StyledTableCell align="right">
-                    <CustomButton1 style={{ borderColor: 'white', color: 'white', backgroundColor: '#008000' }}
+                    {/* <CustomButton1 style={{ borderColor: 'white', color: 'white', backgroundColor: '#008000' }}
                         data-testid="sair"
                         onClick={() => {
                             navigate('/')
                         }}
                     >
                         Editar
-                    </CustomButton1>
+                    </CustomButton1> */}
 
                     <CustomButton1 style={{ borderColor: 'white', color: 'white', backgroundColor: '#FF0000' }}
-                        data-testid="sair"
-                        onClick={() => {
-                            navigate('/')
-                        }}
+                        data-testid="Cancelar"
+                        onClick={() => cancelarConsulta()}
                     >
                         Cancelar
                     </CustomButton1>

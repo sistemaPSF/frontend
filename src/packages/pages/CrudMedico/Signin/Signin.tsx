@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Box, Grid, TextField } from '@mui/material';
@@ -12,44 +12,58 @@ import { Header } from '../../../../components/Header';
 import { Footer } from '../../../../components/Footer';
 import { Link } from '@mui/material';
 import api from '../../../../services/api';
+import { AuthContext } from '../../../../contexts/Auth/AuthContext';
+
 
 
 
 function SigninMedico() {
-
-    const navigate = useNavigate();
-
+    const auth = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
 
-    // Tratamento de Signin
-
-    const handleLogin = async () => {
+    
+      const handleLogin = async () => {
         if (!email || !senha) {
-            setError('Preencha todos os campos');
-            return;
-        } else {
-            return (
-                api.post('/medicos/login', 
-                {
-                    username: email,
-                    password: senha
-                })
-                .then(response => {
-                    // alert('Login feito com sucesso')
-                    navigate('/ConsultasAgendadas')
-                }).catch(err => {
-                    setError('Email ou senha inválidos');
-                })
-            )
+          setError('Preencha todos os campos');
+          return;
         }
+        try {
+         await auth.signinMedico(email, senha);
+          navigate('/ConsultasAgendadas');
+        } catch {
+          setError('E-mail ou senha incorretos');
+        }
+      };
+      
+    
+
+    // const handleLogin = async () => {
+    //     if (!email || !senha) {
+    //         setError('Preencha todos os campos');
+    //         return;
+    //     } else {
+    //         return (
+    //             api.post('/medicos/login', 
+    //             {
+    //                 username: email,
+    //                 password: senha
+    //             })
+    //             .then(response => {
+    //                 navigate('/ConsultasAgendadas')
+    //             }).catch(error => {
+    //                 setError('Email ou senha inválidos');
+    //             })
+    //         )
+    //     }
 
         // try {
             // Aqui a parte de autenticação
         // }
-    }
+    // }
 
     return (
         <Grid container>

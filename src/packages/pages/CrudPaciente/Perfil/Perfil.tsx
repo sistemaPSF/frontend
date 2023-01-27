@@ -5,77 +5,29 @@ import { Title } from '../../Areas/styles';
 import { Header } from '../../../../components/Header';
 import { Footer } from '../../../../components/Footer';
 import { CustomGrid } from '../../Areas/styles';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import api from '../../../../services/api';
 import { CustomButton3 } from './styles';
+import { useNavigate } from 'react-router-dom';
+import { Paciente } from '../../../../types/Pacientes';
+import { AuthContext } from '../../../../contexts/Auth/AuthContext';
+
 
 
 
 function Perfil() {
-  const [paciente, setDate ]= useState([] as any[]);
+  const [paciente, setPaciente ]= useState<Paciente[]>([]);
+  const navigate = useNavigate();
+ const auth = useContext(AuthContext)
   useEffect(() => {
-    api.get('/pacientes')
-    .then(res => {
-      console.log(res.data)
-      setDate(res.data)
+    api.get('/pacientes/')
+    .then(response => {
+      setPaciente(response.data)
     }).catch(err => console.log(err))
   }, [])
 
-  const arr = paciente.map((paciente, index) => {
-    return (
-      <Box
-        width="75%"
-        display="flex"
-        flexDirection="column"
-        textAlign="left"
-      >
-        <label>Nome:
-        <text> {paciente.nome}</text>
-        </label>
-        
-        <label>RG:
-        <text> {paciente.rg}</text>
-        </label>
-        
-        <label>CPF:
-        <text> {paciente.cpf} </text>
-        </label>
-        
-        <label>SUS:
-        <text> {paciente.sus}</text>
-        </label>
-        <label>Pai: 
-        <text> {paciente.pai} </text>
-        </label>
+    
 
-        <label>Mãe:
-        <text> {paciente.mae} </text>
-        </label>
-
-        <label>Naturalidade:
-        <text> {paciente.naturalidade} </text>
-        </label>
-
-        <label>Profissão:
-        <text>{paciente.profissao} </text>
-        </label>
-        
-        <label>Endereço: 
-        <text> {paciente.rua}, {paciente.numero}, {paciente.bairro}, {paciente.cidade}, {paciente.estado}    </text>
-        </label>
-        
-        <label>
-        <text> {paciente.email} </text>
-        </label>
-        
-        <label>Celular:
-        <text> {paciente.celular} </text>
-        </label>
-        
-      </Box>
-  
-    )
-  })
   return (
     <Grid container>
       <Header />
@@ -122,13 +74,75 @@ function Perfil() {
               textAlign="left"
             >
             {/* Puxar do Banco */}
-            {arr}
+            
+            {paciente?.map((paciente) => {
+              return (
+                <Box
+                  width="75%"
+                  display="flex"
+                  flexDirection="column"
+                  textAlign="left"
+                  key={paciente.id}
+                >
+                  <label>Nome:
+                  <text> {paciente.nome}</text>
+                  </label>
+                  
+                  <label>RG:
+                  <text> {paciente.rg}</text>
+                  </label>
+                  
+                  <label>CPF:
+                  <text> {paciente.cpf} </text>
+                  </label>
+                  
+                  <label>SUS:
+                  <text> {paciente.sus}</text>
+                  </label>
+                  <label>Pai: 
+                  <text> {paciente.pai} </text>
+                  </label>
+
+                  <label>Mãe:
+                  <text> {paciente.mae} </text>
+                  </label>
+
+                  <label>Naturalidade:
+                  <text> {paciente.naturalidade} </text>
+                  </label>
+
+                  <label>Profissão:
+                  <text>{paciente.profissao} </text>
+                  </label>
+                  
+                  <label>Endereço: 
+                  <text> {paciente.rua}, {paciente.numero}, {paciente.bairro}, {paciente.cidade}, {paciente.estado}    </text>
+                  </label>
+                  
+                  <label>
+                  <text> {paciente.email} </text>
+                  </label>
+                  
+                  <label>Celular:
+                  <text> {paciente.celular} </text>
+                  </label>
+                  <text>________________________________________________________</text>
+                  
+                </Box>
+              )
+            })}
         
             </Box>
               <Box display="flex" width="100%" justifyContent="center">
                 <Box width="90%" textAlign="right">
-                  <CustomButton3 style={{ borderColor: " #75D284", backgroundColor: " #75D284" }}>
-                    Editar
+                  <CustomButton3 
+                  style={{ borderColor: "#FF0000",
+                   backgroundColor: "#FF0000" }}
+                   onClick={() => {
+                    navigate('/Areas') 
+                   }}
+                   >
+                    Sair
                   </CustomButton3>
                 </Box>
               </Box>

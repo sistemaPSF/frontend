@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Box, Grid, TextField } from '@mui/material';
@@ -11,43 +11,37 @@ import { Header } from '../../../../components/Header';
 import { Footer } from '../../../../components/Footer';
 import { Link } from '@mui/material';
 import api from '../../../../services/api';
+import { AuthContext } from '../../../../contexts/Auth/AuthContext';
 
 
 
 function SigninPaciente() {
-
     const navigate = useNavigate();
-
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [error, setError] = useState('');
+    const auth = useContext(AuthContext);
+    
 
 
     // Tratamento de Signin
 
     const handleLogin = async () => {
         if (!email || !senha) {
-            setError('Preencha todos os campos');
-            return;
-        } else {
-            return (
-                api.post('/pacientes/login', 
-                {
-                    username: email,
-                    password: senha
-                })
-                .then(response => {
-                    navigate('/HomePaciente')
-                }).catch(err => {
-                    setError('Email ou senha inválidos');
-                })
-            )
+          setError('Preencha todos os campos');
+          return;
         }
-
-        // try {
-            // Aqui a parte de autenticação
-        // }
-    }
+        try {
+         await auth.signinPaciente(email, senha);
+          navigate('/HomePaciente');
+        } catch {
+          setError('E-mail ou senha incorretos');
+        }
+    };
+    const handleLogout = async () => {
+        await auth.signout();
+        navigate('/');
+    } 
 
     return (
         <Grid container>

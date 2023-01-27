@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { Home } from '../packages/pages/HomeInicio';
@@ -16,30 +16,37 @@ import { Perfil } from '../packages/pages/CrudPaciente/Perfil';
 import { ConsultasAgendadas } from '../packages/pages/CrudMedico/ConsultasAgendadas';
 import { Agendamento } from '../packages/pages/CrudAgente/Agendamento';
 import { ListagemConsultas } from '../packages/pages/CrudAgente/ListagemConsultas';
+import { RequireAuth } from '../contexts/RequireAuth';
+import { AuthContext } from '../contexts/Auth/AuthContext';
+import { AuthProvider } from '../contexts/Auth/AuthProvider';
 
 
 function RoutesApp() {
+    const auth = useContext(AuthContext)
     return (
         <BrowserRouter>
-            <Routes>
-                <Route>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/Areas" element={<Areas />} />
-                    <Route path="/SigninPaciente" element={<SigninPaciente />} />
-                    <Route path="/SigninAgente" element={<SigninAgente />} />
-                    <Route path="/SigninMedico" element={<SigninMedico />} />
-                    <Route path="/CrudMedico" element={<CrudMedico />} />
-                    <Route path="/CrudAgente" element={<CrudAgente />} />
-                    <Route path="/CrudPaciente" element={<CrudPaciente />} />
-                    <Route path="/HomePaciente" element={<HomePaciente />} />
-                    <Route path="/AgendarConsulta" element={<AgendarConsulta />} />
-                    <Route path="/Perfil" element={<Perfil />} />
-                    <Route path="/ConsultasAgendadas" element={<ConsultasAgendadas />} />
-                    <Route path="/Agendamento" element={<Agendamento />} /> 
-                    <Route path="/ListagemConsultas" element={<ListagemConsultas />} />
 
-                </Route>
-            </Routes>
+                <Routes>
+                    <Route>
+                        {auth.medico && <a href='/'>Sair</a>}
+                        <Route path="/" element={<Home />} />
+                        <Route path="/Areas" element={ <Areas />} />
+                        <Route path="/SigninPaciente" element={<SigninPaciente />} />
+                        <Route path="/SigninAgente" element={<SigninAgente />} />
+                        <Route path="/SigninMedico" element={<SigninMedico />} />
+                        <Route path="/CrudMedico" element={<CrudMedico />} />
+                        <Route path="/CrudAgente" element={<CrudAgente />} />
+                        <Route path="/CrudPaciente" element={<CrudPaciente />} />
+                        <Route path="/HomePaciente" element={<HomePaciente/>} />
+                        <Route path="/AgendarConsulta" element={<AgendarConsulta />} />
+                        <Route path="/Perfil" element={<Perfil />} />
+                        <Route path="/ConsultasAgendadas" element={<ConsultasAgendadas />} />
+                        <Route path="/Agendamento" element={<Agendamento />} /> 
+                        <Route path="/ListagemConsultas" element={<ListagemConsultas />} />
+
+                    </Route>
+                </Routes>
+ 
         </BrowserRouter>
     );
 }
