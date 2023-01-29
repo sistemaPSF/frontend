@@ -19,6 +19,8 @@ import { ListagemConsultas } from '../packages/pages/CrudAgente/ListagemConsulta
 import { RequireAuth } from '../contexts/RequireAuth';
 import { AuthContext } from '../contexts/Auth/AuthContext';
 import { AuthProvider } from '../contexts/Auth/AuthProvider';
+import { Prontuario } from '../packages/pages/CrudMedico/Prontuario';
+import { Exames } from '../packages/pages/CrudMedico/Exames';
 
 
 function RoutesApp() {
@@ -43,6 +45,8 @@ function RoutesApp() {
                         <Route path="/ConsultasAgendadas" element={<ConsultasAgendadas />} />
                         <Route path="/Agendamento" element={<Agendamento />} /> 
                         <Route path="/ListagemConsultas" element={<ListagemConsultas />} />
+                        <Route path="/Prontuario" element={<Prontuario/>} />
+                        <Route path="/Exames" element={<Exames/>} />
 
                     </Route>
                 </Routes>
