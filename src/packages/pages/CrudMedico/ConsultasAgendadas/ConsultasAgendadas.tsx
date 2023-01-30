@@ -85,8 +85,12 @@ function ConsultasAgendadas(){
                                     {row.nome}
                                 </TableCell>
                                 <TableCell align="right">
-                                    <CustomButton1 style={{ borderColor: "#ade1ff", backgroundColor: "#ade1ff" }}>
-                                        AGENDAR
+                                    <CustomButton1 style={{ borderColor: "#ade1ff", backgroundColor: "#ade1ff" }}
+                                    onClick={() => {
+                                        navigate('/Prontuario') 
+                                      }}
+                                    >
+                                        ATENDER
                                     </CustomButton1>
                                 </TableCell>
                                 </TableRow>
@@ -98,6 +102,16 @@ function ConsultasAgendadas(){
                     </Box>
                 </CustomGrid>
             </Grid>
+            <Box textAlign="end" width="98%" mt="4px">
+                <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
+                    data-testid="sair"
+                    onClick={() => {
+                        // navigate('/Areas')
+                    }}
+                >
+                    Sair
+                </CustomButton1>
+            </Box>
             <Footer/>
         </Grid>
     )

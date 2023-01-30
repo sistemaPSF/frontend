@@ -66,7 +66,11 @@ function Exames() {
               <FormControlLabel control={<Checkbox defaultChecked />} label="EAS" />
             </FormGroup>
             <TextField id="standard-basic" label="Outro" variant="standard" />
-            <CustomButton1 style={{ borderColor: "#ade1ff", backgroundColor: "#ade1ff" }}>
+            <CustomButton1 style={{ borderColor: "#ade1ff", backgroundColor: "#ade1ff" }}
+              onClick={() => {
+                navigate('/ConsultasAgendadas') 
+              }}
+            >
               FINALIZAR CONSULTA
              </CustomButton1>
             </Box>

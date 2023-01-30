@@ -19,6 +19,9 @@ function Prontuario() {
           textAlign="center"
           my="20px"
         >
+          <Box width="50%">
+            <Title style={{ color: '#0693E3' }}>PRONTUÁRIO</Title>
+          </Box>
         <CustomGrid
           container
           item
@@ -63,7 +66,11 @@ function Prontuario() {
             <CustomButton1 style={{ borderColor: "#ade1ff", backgroundColor: "#ade1ff" }}>
               Mostrar exames
              </CustomButton1>
-             <CustomButton1 style={{ borderColor: "#ade1ff", backgroundColor: "#ade1ff" }}>
+             <CustomButton1 style={{ borderColor: "#ade1ff", backgroundColor: "#ade1ff" }}
+              onClick={() => {
+                navigate('/Exames') 
+              }}
+             >
               Solicitar exames
              </CustomButton1>
             </Box>
