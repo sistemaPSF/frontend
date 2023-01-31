@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 export const CustomGrid = styled(Grid)`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   justify-content: space-around;
   align-items: center;
 `;

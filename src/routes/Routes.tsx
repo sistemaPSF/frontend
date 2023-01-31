@@ -21,40 +21,39 @@ import { AuthContext } from '../contexts/Auth/AuthContext';
 import { AuthProvider } from '../contexts/Auth/AuthProvider';
 import { Prontuario } from '../packages/pages/CrudMedico/Prontuario';
 import { Exames } from '../packages/pages/CrudMedico/Exames';
+import { HistoricoConsultas } from '../packages/pages/CrudPaciente/HistoricoConsultas';
+import { DetalhamentoConsultas } from '../packages/pages/CrudPaciente/DetalhamentoConsultas';
 
 
 function RoutesApp() {
     const auth = useContext(AuthContext)
     return (
         <BrowserRouter>
+            <Routes>
+                <Route>
+                    {auth.medico && <a href='/'>Sair</a>}
+                    <Route path="/" element={<Home />} />
+                    <Route path="/Areas" element={<Areas />} />
+                    <Route path="/SigninPaciente" element={<SigninPaciente />} />
+                    <Route path="/SigninAgente" element={<SigninAgente />} />
+                    <Route path="/SigninMedico" element={<SigninMedico />} />
+                    <Route path="/CrudMedico" element={<CrudMedico />} />
+                    <Route path="/CrudAgente" element={<CrudAgente />} />
+                    <Route path="/CrudPaciente" element={<CrudPaciente />} />
+                    <Route path="/HomePaciente" element={<HomePaciente />} />
+                    <Route path="/AgendarConsulta" element={<AgendarConsulta />} />
+                    <Route path="/HistoricoConsultas" element={<HistoricoConsultas />} />
+                    <Route path="/Perfil" element={<Perfil />} />
+                    <Route path="/ConsultasAgendadas" element={<ConsultasAgendadas />} />
+                    <Route path="/DetalhamentoConsultas" element={<DetalhamentoConsultas />} />
+                    <Route path="/Agendamento" element={<Agendamento />} />
+                    <Route path="/ListagemConsultas" element={<ListagemConsultas />} />
+                    <Route path="/Prontuario" element={<Prontuario />} />
+                    <Route path="/Exames" element={<Exames />} />
+                </Route>
+            </Routes>
 
-                <Routes>
-                    <Route>
-                        {auth.medico && <a href='/'>Sair</a>}
-                        <Route path="/" element={<Home />} />
-                        <Route path="/Areas" element={ <Areas />} />
-                        <Route path="/SigninPaciente" element={<SigninPaciente />} />
-                        <Route path="/SigninAgente" element={<SigninAgente />} />
-                        <Route path="/SigninMedico" element={<SigninMedico />} />
-                        <Route path="/CrudMedico" element={<CrudMedico />} />
-                        <Route path="/CrudAgente" element={<CrudAgente />} />
-                        <Route path="/CrudPaciente" element={<CrudPaciente />} />
-                        <Route path="/HomePaciente" element={<HomePaciente/>} />
-                        <Route path="/AgendarConsulta" element={<AgendarConsulta />} />
-                        <Route path="/Perfil" element={<Perfil />} />
-                        <Route path="/ConsultasAgendadas" element={<ConsultasAgendadas />} />
-                        <Route path="/Agendamento" element={<Agendamento />} /> 
-                        <Route path="/ListagemConsultas" element={<ListagemConsultas />} />
-                        <Route path="/Prontuario" element={<Prontuario/>} />
-                        <Route path="/Exames" element={<Exames/>} />
-
-                    </Route>
-                </Routes>
- 
         </BrowserRouter>
     );
 }
-
-
-
 export default RoutesApp; 

@@ -64,14 +64,14 @@ function HomePaciente(){
                  </Button>
                  <Button variant="contained" size="large" style={{ backgroundColor: "#0693E3", color: "white"}}
                     onClick={() => {
-                        alert('clicked');
+                        navigate('/HistoricoConsultas')
                     }}
                     >
                     Histórico de consultas
                  </Button>
                  <Button variant="contained" size="large" style={{ backgroundColor: "#0693E3", color: "white"}}
                     onClick={() => {
-                        // navigate('/')
+                        alert('abriu')
                     }}
                     >
                     Consultas agendadas

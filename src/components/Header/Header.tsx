@@ -4,7 +4,6 @@ import { Grid, Box } from '@mui/material';
 import { CustomGrid } from './styles';
 import { Title } from '../../packages/pages/Areas/styles';
 
-import logoSus from '../../assets/logoSus.png';
 
 function Header({ onClick }: { onClick?: () => void }) {
   return (
@@ -31,15 +30,6 @@ function Header({ onClick }: { onClick?: () => void }) {
             <Title> PROGRAMA SAÚDE DA FAMÍLIA </Title>
           </Box>
         </Grid>
-          {/* <Grid 
-            container
-            item 
-            xs={12}
-            justifyContent="flex-end"
-            >
-              <img src={logoSus} width="125px" height="100px"/>
-          </Grid>  */}
-        
       </CustomGrid>
     </Grid>
   );
