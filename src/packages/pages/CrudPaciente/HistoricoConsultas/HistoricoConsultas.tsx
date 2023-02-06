@@ -39,28 +39,14 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 
-function createData(
-    medico: string,
-    especialidade: string,
-    data: string,
-    horario: string,
 
-) {
-    return { medico, especialidade, data, horario };
-}
-
-const rows = [
-    createData('Medico', 'clínico geral', '20/01', '11:00'),
-    createData('Medico', 'pediatra', '20/01', '11:00'),
-    createData('Medico', 'ortopedista', '20/01', '11:00'),
-];
 
 function HistoricoConsultas() {
     const [consultas, setConsultas] = useState([] as any[]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        api.get('/agendamento')
+        api.get('/agendar')
             .then(res => {
                 console.log(res.data)
                 setConsultas(res.data)
@@ -76,7 +62,14 @@ function HistoricoConsultas() {
                     <StyledTableCell align="right">{consultas.data}</StyledTableCell>
                     <StyledTableCell align="right">{consultas.horario}</StyledTableCell>
                     <StyledTableCell align="right">
-                        <CustomButton1 style={{ borderColor: "#ade1ff", backgroundColor: "#ade1ff" }}>
+                        <CustomButton1 
+                        style={{ borderColor: "#ade1ff", 
+                        backgroundColor: "#ade1ff" }}
+                        onClick={() => {
+                            navigate('/DetalhamentoConsultas')
+                          }}
+
+                        >
                             VISUALIZAR
                         </CustomButton1>
                     </StyledTableCell>
@@ -158,7 +151,7 @@ function HistoricoConsultas() {
                     <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
                         data-testid="sair"
                         onClick={() => {
-                            navigate('/')
+                            navigate('/Areas')
                         }}
                     >
                         Sair

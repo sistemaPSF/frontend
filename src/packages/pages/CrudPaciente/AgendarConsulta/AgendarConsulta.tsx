@@ -40,28 +40,23 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(
-  medico: string,
-  especialidade: string,
-  data: string,
-  horario: string,
-
-) {
-  return { medico, especialidade, data, horario };
-}
-
-const rows = [
-  createData('Medico', 'clínico geral','20/01', '11:00'),
-  createData('Medico', 'pediatra', '20/01', '11:00'),
-  createData('Medico', 'ortopedista', '20/01', '11:00'),
-];
 
 function AgendarConsulta () {
   const [consultas, setConsultas ]= useState([] as any[]);
   const navigate = useNavigate();
 
+  const Consulta = () => {
+    api.delete('/agendamento/3')
+    .then(response => {
+      alert('Agendamento feito com sucesso')
+        navigate('/Consultas')
+    }).catch(err => {
+        alert(err)
+    })
+}
+
   useEffect(() => {
-    api.get('/agendamento')
+    api.get('/agendamento/')
     .then(res => {
       console.log(res.data)
       setConsultas(res.data)
@@ -77,7 +72,10 @@ function AgendarConsulta () {
           <StyledTableCell align="right">{consultas.data}</StyledTableCell>
           <StyledTableCell align="right">{consultas.horario}</StyledTableCell>
           <StyledTableCell align="right">
-            <CustomButton1 style={{ borderColor: "#ade1ff", backgroundColor: "#ade1ff" }}>
+            <CustomButton1 
+            style={{ borderColor: "#ade1ff", backgroundColor: "#ade1ff" }}
+              onClick={() => Consulta()}
+          >
               AGENDAR
             </CustomButton1>
           </StyledTableCell>

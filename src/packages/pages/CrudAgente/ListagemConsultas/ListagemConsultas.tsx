@@ -79,12 +79,16 @@ function ListagemConsultas() {
                         Editar
                     </CustomButton1> */}
 
-                    <CustomButton1 style={{ borderColor: 'white', color: 'white', backgroundColor: '#FF0000' }}
-                        data-testid="Cancelar"
-                        onClick={() => cancelarConsulta()}
-                    >
-                        Cancelar
-                    </CustomButton1>
+                    <Box textAlign="end" width="90%" mt="4px">
+                        <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
+                            data-testid="cancelar"
+                            onClick={() => {
+                                navigate('/SigninPaciente')
+                            }}
+                        >
+                            Cancelar
+                        </CustomButton1>
+                    </Box>
                 </StyledTableCell>
             </TableRow>
             
@@ -130,16 +134,17 @@ function ListagemConsultas() {
                         </Table>
                     </TableContainer>
                 </CustomGrid>
+                
             </Grid>
             <Box textAlign="end" width="90%" mt="4px">
-                {/* <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#0693E3' }}
-                        data-testid="sair"
+                <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#0693E3' }}
+                        data-testid="cadastrarConsulta"
                         onClick={() => {
                             navigate('/Agendamento')
                         }}
                 >
                     Cadastrar uma nova consulta
-                </CustomButton1> */}
+                </CustomButton1>
                 <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
                     data-testid="sair"
                     onClick={() => {
@@ -148,6 +153,7 @@ function ListagemConsultas() {
                 >
                     Sair
                 </CustomButton1>
+                
             </Box>
             <Footer />
         </Grid>

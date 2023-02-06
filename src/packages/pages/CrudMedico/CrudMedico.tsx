@@ -189,6 +189,7 @@ function CrudMedico() {
                     />
                     <TextField style={{ backgroundColor: '#AFDCF6' }}
                         data-testid="senha"
+                        type="password"
                         label="Digite sua senha"
                         variant="outlined"
                         size="small"
@@ -201,6 +202,7 @@ function CrudMedico() {
                     />
                     <TextField style={{ backgroundColor: '#AFDCF6' }}
                         data-testid="ConfirmarSenha"
+                        type="password"
                         label="Confirme a sua senha"
                         variant="outlined"
                         size="small"

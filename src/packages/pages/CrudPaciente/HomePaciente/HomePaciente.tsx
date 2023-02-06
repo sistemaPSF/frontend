@@ -69,7 +69,7 @@ function HomePaciente() {
                     </Button>
                     <Button variant="contained" size="large" style={{ backgroundColor: "#0693E3", color: "white" }}
                         onClick={() => {
-                            navigate('/')
+                            navigate('/Consultas')
                         }}
                     >
                         Consultas agendadas

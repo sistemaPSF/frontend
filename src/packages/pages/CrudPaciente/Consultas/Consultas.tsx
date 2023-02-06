@@ -61,7 +61,7 @@ function Consultas() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    api.get('/agendamento')
+    api.get('/agendar')
       .then(res => {
         console.log(res.data)
         setConsultas(res.data)
@@ -77,8 +77,8 @@ function Consultas() {
           <StyledTableCell align="right">{consultas.data}</StyledTableCell>
           <StyledTableCell align="right">{consultas.horario}</StyledTableCell>
           <StyledTableCell align="right">
-            <CustomButton1 style={{ borderColor: "#ade1ff", backgroundColor: "#ade1ff" }}>
-              AGENDAR
+            <CustomButton1 style={{ borderColor: "##FF0000", backgroundColor: "#FF0000" }}>
+              Cancelar
             </CustomButton1>
           </StyledTableCell>
         </StyledTableRow>
@@ -157,7 +157,7 @@ function Consultas() {
                     <StyledTableCell align="right">Especialidade</StyledTableCell>
                     <StyledTableCell align="right">Data</StyledTableCell>
                     <StyledTableCell align="right">Horário</StyledTableCell>
-                    <StyledTableCell align="right"> Agendar Consulta </StyledTableCell>
+                    <StyledTableCell align="right"> </StyledTableCell>
                   </TableRow>
                 </TableHead>
                 {listarConsultas}
@@ -169,7 +169,7 @@ function Consultas() {
           <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
             data-testid="sair"
             onClick={() => {
-              navigate('/')
+              navigate('/Areas')
             }}
           >
             Sair

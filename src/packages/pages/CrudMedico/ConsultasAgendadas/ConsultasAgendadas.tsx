@@ -25,9 +25,7 @@ function createData(
 }
 
 const rows = [
-    createData('Nome do Paciente'),
-    createData('Nome do Paciente'),
-    createData('Nome do Paciente')
+    createData('Fernanda de souza'),
   ];
 
 function ConsultasAgendadas(){
@@ -106,7 +104,7 @@ function ConsultasAgendadas(){
                 <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
                     data-testid="sair"
                     onClick={() => {
-                        // navigate('/Areas')
+                        navigate('/Areas')
                     }}
                 >
                     Sair

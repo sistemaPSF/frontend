@@ -127,7 +127,6 @@ function Perfil() {
                   <label>Celular:
                   <text> {paciente.celular} </text>
                   </label>
-                  <text>________________________________________________________</text>
                   
                 </Box>
               )

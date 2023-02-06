@@ -64,7 +64,7 @@ function CrudAgente() {
                 "confirmarSenha": confirmarSenha
             }
         ).then(response => {
-            navigate('/Signin')
+            navigate('/SigninAgente')
         }).catch(err => {
             alert(err)
         })
@@ -259,6 +259,7 @@ function CrudAgente() {
 
                     <TextField style={{ backgroundColor: '#AFDCF6' }}
                         data-testid="senha"
+                        type="password"
                         label="Digite sua senha"
                         variant="outlined"
                         size="small"
@@ -271,6 +272,7 @@ function CrudAgente() {
                     />
                     <TextField style={{ backgroundColor: '#AFDCF6' }}
                         data-testid="ConfirmarSenha"
+                        type="password"
                         label="Confirme a sua senha"
                         variant="outlined"
                         size="small"

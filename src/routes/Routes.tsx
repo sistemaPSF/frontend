@@ -45,13 +45,14 @@ function RoutesApp() {
                     <Route path="/AgendarConsulta" element={<AgendarConsulta />} />
                     <Route path="/HistoricoConsultas" element={<HistoricoConsultas />} />
                     <Route path="/Perfil" element={<Perfil />} />
-                    <Route path="/ConsultasAgendadas" element={<ConsultasAgendadas />} />
+                    <Route path="/Consultas" element={<Consultas />} />
                     <Route path="/DetalhamentoConsultas" element={<DetalhamentoConsultas />} />
                     <Route path="/Agendamento" element={<Agendamento />} />
                     <Route path="/ListagemConsultas" element={<ListagemConsultas />} />
+                    <Route path="/ConsultasAgendadas" element={<ConsultasAgendadas />} />
                     <Route path="/Prontuario" element={<Prontuario />} />
                     <Route path="/Consultas" element={<Consultas />} />
-             
+                    
                 </Route>
             </Routes>
 

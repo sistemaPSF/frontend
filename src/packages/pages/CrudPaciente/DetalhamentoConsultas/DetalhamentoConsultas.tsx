@@ -15,6 +15,15 @@ import { CustomButton1 } from './../HistoricoConsultas/styles';
 
 function DetalhamentoConsultas() {
   const navigate = useNavigate();
+  const [detalhamentoConsultas, setDetalhamentoConsultas] = useState([] as any [])
+
+  useEffect(() => {
+    api.get('atendimentos')
+    .then(response => {
+      setDetalhamentoConsultas(response.data)
+    }).catch(error => console.log(error));
+  }, [])
+
 
   return (
     <Grid container>
@@ -63,26 +72,36 @@ function DetalhamentoConsultas() {
               Meu Perfil
             </Link>
           </Box>
-          <Box
-            width="100%"
-            minWidth="625px"
-            display="flex"
-            flexDirection="column"
-            flexWrap="wrap"
-            gap={1}
-            alignItems="center"
-          >
-            <FormControl>
-              <FormLabel style={{ color: "#034C81", fontSize: "20px", justifyContent: "center" }}>Descrição da Consulta</FormLabel>
-              <text style={{ backgroundColor: "#FFF", borderRadius: "12px", borderColor: "#034C81", height: "350px", width: "550px" }}> </text>
-            </FormControl>
-          </Box>
+          {detalhamentoConsultas?.map((detalhamentoConsulta) => {
+            return (
+              <Box
+                width="100%"
+                minWidth="625px"
+                display="flex"
+                flexDirection="column"
+                flexWrap="wrap"
+                gap={1}
+                alignItems="center"
+              >
+                <FormControl>
+                  <FormLabel style={{ color: "#034C81", fontSize: "20px", justifyContent: "center" }}>Descrição da Consulta</FormLabel>
+                  <text 
+                  style={{ backgroundColor: "#FFF", 
+                  borderRadius: "12px",
+                   borderColor: "#034C81", 
+                   height: "350px", 
+                   width: "550px" }}> {detalhamentoConsulta.descricao}</text>
+                </FormControl>
+              </Box>
+            )
+          })}
+          
         </CustomGrid>
         <Box textAlign="end" width="90%" mt="4px">
           <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
             data-testid="sair"
             onClick={() => {
-              navigate('/')
+              navigate('/Areas')
             }}
           >
             Sair

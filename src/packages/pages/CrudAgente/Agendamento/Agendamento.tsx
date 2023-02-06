@@ -126,14 +126,14 @@ function Agendamento() {
                     </Box>
                 </CustomGrid>
                 <Box textAlign="end" width="90%" mt="4px">
-                    {/* <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#0693E3' }}
+                    <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#0693E3' }}
                             data-testid="sair"
                             onClick={() => {
                                 navigate('/ListagemConsultas')
                             }}
                     >
                         Consultas Cadastradas
-                    </CustomButton1> */}
+                    </CustomButton1>
                     <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
                         data-testid="sair"
                         onClick={() => {
