@@ -15,7 +15,7 @@ import { CustomButton1 } from '../../HomeInicio/styles';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import { IconButton } from '@mui/joy';
 import { useNavigate } from 'react-router-dom';
-import {  Link } from '@material-ui/core';
+import { Link } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import api from '../../../../services/api';
 
@@ -51,27 +51,27 @@ function createData(
 }
 
 const rows = [
-  createData('Medico', 'clínico geral','20/01', '11:00'),
+  createData('Medico', 'clínico geral', '20/01', '11:00'),
   createData('Medico', 'pediatra', '20/01', '11:00'),
   createData('Medico', 'ortopedista', '20/01', '11:00'),
 ];
 
-function AgendarConsulta () {
-  const [consultas, setConsultas ]= useState([] as any[]);
+function Consultas() {
+  const [consultas, setConsultas] = useState([] as any[]);
   const navigate = useNavigate();
 
   useEffect(() => {
     api.get('/agendamento')
-    .then(res => {
-      console.log(res.data)
-      setConsultas(res.data)
-    }).catch(err => console.log(err))
+      .then(res => {
+        console.log(res.data)
+        setConsultas(res.data)
+      }).catch(err => console.log(err))
   }, [])
 
   const listarConsultas = consultas.map((consultas, index) => {
     return (
       <TableBody>
-          <StyledTableRow key={consultas.medico}>
+        <StyledTableRow key={consultas.medico}>
           <StyledTableCell component="th" scope="row">{consultas.medico}</StyledTableCell>
           <StyledTableCell align="right">{consultas.especialidade}</StyledTableCell>
           <StyledTableCell align="right">{consultas.data}</StyledTableCell>
@@ -81,15 +81,15 @@ function AgendarConsulta () {
               AGENDAR
             </CustomButton1>
           </StyledTableCell>
-          </StyledTableRow>
+        </StyledTableRow>
 
-      </TableBody>             
+      </TableBody>
     )
   })
   return (
     <Grid container>
-         <Box width="100%" minWidth="650px">
-            <Header/>
+      <Box width="100%" minWidth="650px">
+        <Header />
       </Box>
       <Grid
         container
@@ -100,7 +100,7 @@ function AgendarConsulta () {
         my="2px"
       >
         <Box width="100%">
-          <Title style={{ color: '#0693E3' }}>AGENDAR CONSULTA</Title>
+          <Title style={{ color: '#0693E3' }}>MINHAS CONSULTAS AGENDADADAS</Title>
         </Box>
         <CustomGrid
           container
@@ -118,18 +118,18 @@ function AgendarConsulta () {
           gap={10}
         >
           <Box display="flex" justifyContent="right" alignItems="right">
-                <Link
-                    style={{ color: "#0693E3", position: "absolute", top: "150px", left: "1400px" }}
-                    component="button"
-                    variant="h6"
-                    underline="none"
-                    onClick={() => {
-                        navigate('/Perfil')
-                    }}
-                    >
-                    Meu Perfil
-                </Link>
-            </Box>
+            <Link
+              style={{ color: "#0693E3", position: "absolute", top: "150px", left: "1400px" }}
+              component="button"
+              variant="h6"
+              underline="none"
+              onClick={() => {
+                navigate('/Perfil')
+              }}
+            >
+              Meu Perfil
+            </Link>
+          </Box>
           <Box width="100%">
             <Box
               width="50%"
@@ -150,20 +150,20 @@ function AgendarConsulta () {
             alignItems="center"
           >
             <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 700 }} aria-label="customized table">
-                    <TableHead>
-                    <TableRow>
-                        <StyledTableCell>Médicos</StyledTableCell>
-                        <StyledTableCell align="right">Especialidade</StyledTableCell>
-                        <StyledTableCell align="right">Data</StyledTableCell>
-                        <StyledTableCell align="right">Horário</StyledTableCell>
-                        <StyledTableCell align="right"> Agendar Consulta </StyledTableCell>
-                    </TableRow>
-                    </TableHead>
-                    {listarConsultas}
-                </Table>
+              <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                <TableHead>
+                  <TableRow>
+                    <StyledTableCell>Médicos</StyledTableCell>
+                    <StyledTableCell align="right">Especialidade</StyledTableCell>
+                    <StyledTableCell align="right">Data</StyledTableCell>
+                    <StyledTableCell align="right">Horário</StyledTableCell>
+                    <StyledTableCell align="right"> Agendar Consulta </StyledTableCell>
+                  </TableRow>
+                </TableHead>
+                {listarConsultas}
+              </Table>
             </TableContainer>
-            </Box>
+          </Box>
         </CustomGrid>
         <Box textAlign="end" width="90%" mt="4px">
           <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
@@ -176,11 +176,11 @@ function AgendarConsulta () {
           </CustomButton1>
         </Box>
       </Grid>
-        <Footer/>
+      <Footer />
 
-    </Grid>
+    </Grid >
 
   );
 }
 
-export default AgendarConsulta;
+export default Consultas;

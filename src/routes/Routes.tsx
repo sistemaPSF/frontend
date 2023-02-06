@@ -20,9 +20,10 @@ import { RequireAuth } from '../contexts/RequireAuth';
 import { AuthContext } from '../contexts/Auth/AuthContext';
 import { AuthProvider } from '../contexts/Auth/AuthProvider';
 import { Prontuario } from '../packages/pages/CrudMedico/Prontuario';
-import { Exames } from '../packages/pages/CrudMedico/Exames';
 import { HistoricoConsultas } from '../packages/pages/CrudPaciente/HistoricoConsultas';
 import { DetalhamentoConsultas } from '../packages/pages/CrudPaciente/DetalhamentoConsultas';
+import { Consultas } from '../packages/pages/CrudPaciente/Consultas';
+
 
 
 function RoutesApp() {
@@ -49,7 +50,8 @@ function RoutesApp() {
                     <Route path="/Agendamento" element={<Agendamento />} />
                     <Route path="/ListagemConsultas" element={<ListagemConsultas />} />
                     <Route path="/Prontuario" element={<Prontuario />} />
-                    <Route path="/Exames" element={<Exames />} />
+                    <Route path="/Consultas" element={<Consultas />} />
+             
                 </Route>
             </Routes>
 

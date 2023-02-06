@@ -11,6 +11,7 @@ import { Grid, Box } from '@mui/material';
 import { Header } from '../../../../components/Header';
 import { Footer } from '../../../../components/Footer';
 import { CustomGrid, Title } from './styles';
+import { Button, Link } from '@material-ui/core';
 import { CustomButton1 } from '../../HomeInicio/styles';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -76,7 +77,7 @@ function HistoricoConsultas() {
                     <StyledTableCell align="right">{consultas.horario}</StyledTableCell>
                     <StyledTableCell align="right">
                         <CustomButton1 style={{ borderColor: "#ade1ff", backgroundColor: "#ade1ff" }}>
-                           VISUALIZAR
+                            VISUALIZAR
                         </CustomButton1>
                     </StyledTableCell>
                 </StyledTableRow>
@@ -115,6 +116,19 @@ function HistoricoConsultas() {
                     borderRadius="12px"
                     gap={10}
                 >
+                    <Box display="flex" justifyContent="right" alignItems="right">
+                        <Link
+                            style={{ color: "#0693E3", position: "absolute", top: "150px", left: "1400px" }}
+                            component="button"
+                            variant="h6"
+                            underline="none"
+                            onClick={() => {
+                                navigate('/Perfil')
+                            }}
+                        >
+                            Meu Perfil
+                        </Link>
+                    </Box>
                     <Box
                         width="100%"
                         minWidth="625px"
@@ -140,6 +154,16 @@ function HistoricoConsultas() {
                         </TableContainer>
                     </Box>
                 </CustomGrid>
+                <Box textAlign="end" width="90%" mt="4px">
+                    <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
+                        data-testid="sair"
+                        onClick={() => {
+                            navigate('/')
+                        }}
+                    >
+                        Sair
+                    </CustomButton1>
+                </Box>
             </Grid>
             <Footer />
 

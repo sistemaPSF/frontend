@@ -11,6 +11,7 @@ import { CustomButton3 } from './styles';
 import { useNavigate } from 'react-router-dom';
 import { Paciente } from '../../../../types/Pacientes';
 import { AuthContext } from '../../../../contexts/Auth/AuthContext';
+import { CustomButton1 } from './../HistoricoConsultas/styles';
 
 
 
@@ -149,6 +150,16 @@ function Perfil() {
 
             </Box>
         </CustomGrid>
+        <Box textAlign="end" width="90%" mt="4px">
+          <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
+            data-testid="sair"
+            onClick={() => {
+              navigate('/')
+            }}
+          >
+            Sair
+          </CustomButton1>
+        </Box>
       </Grid>
       < Footer />
     </Grid>
