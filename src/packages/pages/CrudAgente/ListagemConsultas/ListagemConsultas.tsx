@@ -4,7 +4,7 @@ import { Box, styled, TableBody, TableCell, TableContainer, TableHead, TableRow 
 import Table from '@mui/material/Table';
 import { Grid } from '@mui/joy';
 import { CustomGrid } from '../../HomeInicio/styles';
-import { Subtitle, CustomButton1 } from '../../Areas/styles';
+import { Subtitle, CustomButton1 } from '../Signin/styles';
 import { Header } from '../../../../components/Header';
 import { Footer } from '../../../../components/Footer';
 import { tableCellClasses } from '@mui/material';
@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import api from '../../../../services/api';
 import { Agendamanto } from '../../../../types/Agendamento';
+import { Link } from '@mui/material';
 
 
 
@@ -89,9 +90,9 @@ function ListagemConsultas() {
                             Cancelar
                         </CustomButton1>
                     </Box>
+                    
                 </StyledTableCell>
             </TableRow>
-            
         </TableBody>
         )
       })
@@ -113,7 +114,7 @@ function ListagemConsultas() {
                     xs={12}
                     sm={12}
                     md={8}
-                    // p="2px"
+                    p="32px"
                     direction="column"
                     justifyContent="center"
                     alignItems="center"
@@ -133,28 +134,30 @@ function ListagemConsultas() {
                            {consultas}
                         </Table>
                     </TableContainer>
-                </CustomGrid>
-                
-            </Grid>
-            <Box textAlign="end" width="90%" mt="4px">
-                <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#0693E3' }}
-                        data-testid="cadastrarConsulta"
+                    <Link
+                        style= {{ color: '#034C81' }}
+                        component="button"
+                        variant="h6"
+                        fontWeight="bold"
+                        underline="none"
                         onClick={() => {
                             navigate('/Agendamento')
                         }}
-                >
-                    Cadastrar uma nova consulta
-                </CustomButton1>
-                <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
-                    data-testid="sair"
-                    onClick={() => {
-                        navigate('/Areas')
-                    }}
-                >
-                    Sair
-                </CustomButton1>
-                
-            </Box>
+                        >
+                        Cadastrar uma consulta
+                    </Link>
+                </CustomGrid>
+            </Grid>
+            <Box textAlign="end" width="90%" mt="4px">
+                    <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
+                        data-testid="sair"
+                        onClick={() => {
+                            navigate('/Areas') 
+                          }}
+                    >
+                        Sair
+                    </CustomButton1>
+                </Box>
             <Footer />
         </Grid>
     );

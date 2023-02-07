@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { TextField } from '@material-ui/core';
 import { Container } from '../../Areas/styles';
-import { Box } from '@mui/material';
+import { Box, Link } from '@mui/material';
 import { Grid } from '@mui/joy';
 import { CustomGrid } from '../../../../components/Footer/styles';
 import { CustomButton1, Subtitle } from '../Signin/styles';
@@ -124,16 +124,20 @@ function Agendamento() {
                             Cadastrar
                         </CustomButton1>
                     </Box>
+                    <Link
+                        style= {{ color: '#034C81' }}
+                        component="button"
+                        variant="h6"
+                        fontWeight="bold"
+                        underline="none"
+                        onClick={() => {
+                            navigate('/ListagemConsultas')
+                        }}
+                        >
+                        Mostrar consultas cadastradas
+                    </Link>
                 </CustomGrid>
                 <Box textAlign="end" width="90%" mt="4px">
-                    <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#0693E3' }}
-                            data-testid="sair"
-                            onClick={() => {
-                                navigate('/ListagemConsultas')
-                            }}
-                    >
-                        Consultas Cadastradas
-                    </CustomButton1>
                     <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
                         data-testid="sair"
                         onClick={() => {
