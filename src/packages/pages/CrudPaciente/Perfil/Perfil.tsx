@@ -153,7 +153,7 @@ function Perfil() {
           <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
             data-testid="sair"
             onClick={() => {
-              navigate('/')
+              navigate('/Areas')
             }}
           >
             Sair

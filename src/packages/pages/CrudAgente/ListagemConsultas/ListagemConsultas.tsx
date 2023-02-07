@@ -39,39 +39,39 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 function ListagemConsultas() {
-    const [ listagemconsultas, setListagemConsultas ]= useState<Agendamanto[]>([]);
+    const [listagemconsultas, setListagemConsultas] = useState<Agendamanto[]>([]);
     const navigate = useNavigate();
-    
+
     useEffect(() => {
         api.get('/agendamento')
-        .then(res => {
-          console.log(res.data)
-          setListagemConsultas(res.data)
-        }).catch(err => console.log(err))
-      }, [])
+            .then(res => {
+                console.log(res.data)
+                setListagemConsultas(res.data)
+            }).catch(err => console.log(err))
+    }, [])
 
     const cancelarConsulta = () => {
         api.delete('/agendamento')
-        .then(response => {
-            navigate('/ListagemConsultas')
-        }).catch(err => {
-            alert(err)
-        })
+            .then(response => {
+                navigate('/ListagemConsultas')
+            }).catch(err => {
+                alert(err)
+            })
     }
 
-      const consultas = listagemconsultas.map((listagemconsultas, index) => {
-        return(
+    const consultas = listagemconsultas.map((listagemconsultas, index) => {
+        return (
             <TableBody>
 
-          
-            <TableRow >
-                <TableCell>{listagemconsultas.medico}</TableCell>
-                <TableCell>{listagemconsultas.especialidade}</TableCell>
-                <TableCell>{listagemconsultas.data}</TableCell>
-                <TableCell>{listagemconsultas.horario}</TableCell>
 
-                <StyledTableCell align="right">
-                    {/* <CustomButton1 style={{ borderColor: 'white', color: 'white', backgroundColor: '#008000' }}
+                <TableRow >
+                    <TableCell>{listagemconsultas.medico}</TableCell>
+                    <TableCell>{listagemconsultas.especialidade}</TableCell>
+                    <TableCell>{listagemconsultas.data}</TableCell>
+                    <TableCell>{listagemconsultas.horario}</TableCell>
+
+                    <StyledTableCell align="right">
+                        {/* <CustomButton1 style={{ borderColor: 'white', color: 'white', backgroundColor: '#008000' }}
                         data-testid="sair"
                         onClick={() => {
                             navigate('/')
@@ -80,22 +80,22 @@ function ListagemConsultas() {
                         Editar
                     </CustomButton1> */}
 
-                    <Box textAlign="end" width="90%" mt="4px">
-                        <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
-                            data-testid="cancelar"
-                            onClick={() => {
-                                navigate('/SigninPaciente')
-                            }}
-                        >
-                            Cancelar
-                        </CustomButton1>
-                    </Box>
-                    
-                </StyledTableCell>
-            </TableRow>
-        </TableBody>
+                        <Box textAlign="end" width="90%" mt="4px">
+                            <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
+                                data-testid="cancelar"
+                                onClick={() => {
+                                    navigate('/SigninPaciente')
+                                }}
+                            >
+                                Cancelar
+                            </CustomButton1>
+                        </Box>
+
+                    </StyledTableCell>
+                </TableRow>
+            </TableBody>
         )
-      })
+    })
     return (
         <Grid container>
             <Header />
@@ -120,8 +120,8 @@ function ListagemConsultas() {
                     alignItems="center"
                     width="60vh"
                     minHeight="65vh"
-                    border="3px solid #0693E3"
-                    borderRadius="10px"
+                    border="2px solid #0693E3"
+                    borderRadius="12px"
                 >
                     <Subtitle style={{ color: '#0693E3' }}> LISTAGEM DE CONSULTAS </Subtitle>
                     <TableContainer>
@@ -131,33 +131,36 @@ function ListagemConsultas() {
                                     <StyledTableCell align="center">CONSULTAS</StyledTableCell>
                                 </TableRow>
                             </TableHead>
-                           {consultas}
+                            {consultas}
                         </Table>
                     </TableContainer>
                     <Link
-                        style= {{ color: '#034C81' }}
+                        style={{ color: '#034C81', float: "left", width: "100%", marginRight: "2%", marginTop: "250px" }}
                         component="button"
+                        textAlign="right"
                         variant="h6"
-                        fontWeight="bold"
+                        fontSize="18px"
+                        fontWeight="lighter"
                         underline="none"
                         onClick={() => {
                             navigate('/Agendamento')
                         }}
-                        >
-                        Cadastrar uma consulta
+                    >
+                        Cadastrar uma nova consulta
                     </Link>
                 </CustomGrid>
+                <Box textAlign="end" width="100%" mt="10px">
+                <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000', float: "left", width: "100%", marginRight: "100%", marginTop: "550px" }}
+                    data-testid="sair"
+                    onClick={() => {
+                        navigate('/')
+                    }}
+                >
+                    Sair
+                </CustomButton1>
+            </Box>
             </Grid>
-            <Box textAlign="end" width="90%" mt="4px">
-                    <CustomButton1 style={{ borderColor: '#0693E3', color: 'white', backgroundColor: '#FF0000' }}
-                        data-testid="sair"
-                        onClick={() => {
-                            navigate('/Areas') 
-                          }}
-                    >
-                        Sair
-                    </CustomButton1>
-                </Box>
+
             <Footer />
         </Grid>
     );

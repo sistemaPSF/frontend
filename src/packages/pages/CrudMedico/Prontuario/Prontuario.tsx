@@ -156,11 +156,7 @@ function Prontuario() {
                     Sair
                 </CustomButton1>
             </Box>
-      <Footer
-        onClick={() => {
-          navigate('/');
-        }}
-      />
+      <Footer/>
     </Grid >
   );
 }

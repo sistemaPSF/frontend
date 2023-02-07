@@ -125,10 +125,11 @@ function Agendamento() {
                         </CustomButton1>
                     </Box>
                     <Link
-                        style= {{ color: '#034C81' }}
+                        style= {{ color: '#034C81',  float: "left", width: "100%", marginRight: "2%", marginTop: "60px" }}
                         component="button"
                         variant="h6"
-                        fontWeight="bold"
+                        fontSize="20px"
+                        fontWeight="lighter"
                         underline="none"
                         onClick={() => {
                             navigate('/ListagemConsultas')
